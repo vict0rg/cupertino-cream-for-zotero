@@ -8,6 +8,7 @@
 
 var registeredSheets = [];
 var CupertinoReaderBackground;
+var cupertinoAddonEnabled = false;
 var windowListener = null;
 
 var ROW_ANIM_CLASS = "cupertino-row-in";
@@ -256,6 +257,7 @@ function forEachWindow(callback) {
 function install(data, reason) {}
 
 function startup({ id, version, resourceURI, rootURI = resourceURI.spec }, reason) {
+  cupertinoAddonEnabled = true;
 	var styleService = getStyleService();
 	var uri = Services.io.newURI(rootURI + "style.css");
 	styleService.loadAndRegisterSheet(uri, styleService.AUTHOR_SHEET);
@@ -263,13 +265,13 @@ function startup({ id, version, resourceURI, rootURI = resourceURI.spec }, reaso
 
   // Integrate native Zotero reader themes through an optional reader toolbar control.
   // This module is original code; no Zotero PDF Background sources are reused.
-  try {
-    Services.scriptloader.loadSubScript(rootURI + "reader-background.js");
-    CupertinoReaderBackground?.start(id);
-  }
-  catch (error) {
-    Zotero.logError(error);
-  }
+  // build.py combines reader-background.js into the XPI bootstrap.js global.
+  // No separate subscript scope is needed, so the toolbar hook is reachable.
+  Promise.resolve(Zotero.uiReadyPromise).then(() => {
+    if (cupertinoAddonEnabled) {
+      CupertinoReaderBackground.start(id);
+    }
+  }).catch(error => Zotero.logError(error));
 
 	// Attach to current windows now and to future windows once loaded.
 	forEachWindow(attachToWindow);
@@ -288,6 +290,7 @@ function startup({ id, version, resourceURI, rootURI = resourceURI.spec }, reaso
 }
 
 function shutdown({ id, version, resourceURI, rootURI = resourceURI.spec }, reason) {
+  cupertinoAddonEnabled = false;
   try { CupertinoReaderBackground?.stop(); }
   catch (error) { Zotero.logError(error); }
 	var styleService = getStyleService();

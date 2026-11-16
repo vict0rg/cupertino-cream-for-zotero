@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 — Reader toolbar and metadata navigation fixes (experimental)
+
+- Reader background selector: bundle the reader code directly into the Zotero bootstrap script instead of executing it through a separate subscript scope; register the toolbar hook after Zotero UI is ready.
+- Right-hand item metadata navigation: remove the original Cupertino 10px hover-to-expand behavior so the navigation rail keeps its native width and does not cover citation metadata.
+- Add a mocked reader toolbar test to the GitHub Actions build.
+- All v0.2.0 reading colors and earlier changes remain intact.
+
 ## 0.2.0 — Soft PDF backgrounds (experimental)
 
 - Added a clearly labeled **PDF Background** control to the native reader toolbar.

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Cupertino for Zotero with PDF Background",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Cupertino-inspired theme with a persistent menu bar and soft PDF reader background presets, using Zotero's native reader themes.",
   "author": "Cupertino for Zotero contributors; vict0rg derivative",
   "icons": {

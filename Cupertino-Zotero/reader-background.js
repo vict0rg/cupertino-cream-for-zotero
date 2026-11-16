@@ -1,5 +1,5 @@
 /*
- * Cupertino for Zotero with PDF Background — original reader controls, v0.2.0.
+ * Cupertino for Zotero with PDF Background — original reader controls, v0.2.1.
  *
  * Uses Zotero's native reader themes, not an overlay on PDF text layers.
  * Inspired by the UI goal of Zotero PDF Background (azhar-rafiq fork);

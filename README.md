@@ -2,13 +2,13 @@
 
 An independent, English-language fork of [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero), designed for a calm reading experience.
 
-> **v0.2.0 prerelease:** Four soft PDF backgrounds are now available from a **PDF Background** selector in the reader toolbar. Colors use Zotero's native reader theme mechanism, not an overlay. Tested by static builds only, not yet visually in a real Zotero client.
+> **v0.2.1 prerelease:** Fixes the PDF background selector not appearing and prevents the metadata navigation strip from overlapping item details. The reader toolbar hook is now packed into the same bootstrap scope as the add-on. Four soft PDF backgrounds are now available from a **PDF Background** selector in the reader toolbar. Colors use Zotero's native reader theme mechanism, not an overlay. Tested by static builds only, not yet visually in a real Zotero client.
 
 ## Choose a PDF background
 
-1. Install the v0.2.0 XPI from the GitHub Release. Disable conflicting full-UI theme add-ons.
+1. Install the v0.2.1 XPI from the GitHub Release. Disable conflicting full-UI theme add-ons.
 2. **Close and reopen your PDF tab** so the reader toolbar is rendered with the new control.
-3. Look for **PDF Background** in the reader toolbar and select **Soft Cream**, **Soft Blue**, **Soft Sage**, **Soft Paper**, or **Original**.
+3. Look for **PDF Background** on the **right end** of the reader toolbar, immediately before Appearance (Aa), and select **Soft Cream**, **Soft Blue**, **Soft Sage**, **Soft Paper**, or **Original**.
 4. Alternatively, open the native **Appearance (Aa)** panel at the upper-right of Zotero's PDF reader. Custom themes you selected are also available there.
 
 **Requires Zotero 8+ for native themes.** The Cupertino UI supports Zotero 7, but native reader color presets are not guaranteed there. Selecting a preset changes Zotero's own reader light- and dark-theme preferences; it does not edit or recolor PDF file bytes.
@@ -33,7 +33,7 @@ Themes are saved on selection through Zotero's synced reader themes, preserving 
 
 ## Install
 
-1. Download `cupertino-with-pdf-background-0.2.0.xpi` from [GitHub Releases](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases).
+1. Download `cupertino-with-pdf-background-0.2.1.xpi` from [GitHub Releases](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases).
 2. In Zotero, select **Tools → Plugins → gear icon → Install Plugin From File**.
 3. Disable other full-interface themes (especially the original Cupertino and Pixel-Blue Workspace) during testing to avoid conflicting CSS rules.
 4. Check that the application menu remains accessible by mouse and keyboard.
@@ -54,7 +54,7 @@ node --check Cupertino-Zotero/reader-background.js
 python3 scripts/build.py
 ```
 
-The build produces an XPI and an `updates.json` manifest in `dist/`. The GitHub Actions workflow publishes a **pre-release** from the default branch for v0.2.0.
+The build produces an XPI and an `updates.json` manifest in `dist/`. The GitHub Actions workflow publishes a **pre-release** from the default branch for v0.2.1.
 
 ## Credits and licenses
 
@@ -65,3 +65,10 @@ This is a **fork**, not an official Cupertino release. The upstream Git history 
 - [Zotero PDF Background](https://github.com/q77190858/zotero-pdf-background) — reading-background feature inspiration; no copied source.
 
 See [CREDITS.md](CREDITS.md) and [CHANGELOG.md](CHANGELOG.md). This project is not affiliated with Zotero or the upstream creators.
+
+## 0.2.1 fixes
+
+- Keep the item details navigation rail at Zotero's native width instead of expanding over metadata on hover.
+- Bundle the reader hook into the XPI bootstrap global, eliminating the separate subscript loader and its scope ambiguity.
+- Wait until Zotero's interface is ready before registering the reader toolbar hook. Close and reopen PDF tabs after installation to render it.
+- The original Cupertino menu bar visibility fix is retained.

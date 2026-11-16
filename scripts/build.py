@@ -18,7 +18,7 @@ assert ADDON["id"] == "cupertino-with-pdf-background@vict0rg.github.io"
 assert ADDON["strict_min_version"] == "7.0"
 assert ADDON["strict_max_version"] == "10.0.*"
 assert ADDON["update_url"].startswith("https://github.com/vict0rg/")
-assert VERSION == "0.2.0", "Review version and release notes before a new release"
+assert VERSION == "0.2.1", "Review version and release notes before a new release"
 STYLE = (SRC / "style.css").read_text(encoding="utf-8")
 assert "#menubar-items {\n\tmax-width: 14px" not in STYLE, "Native menu must remain visible"
 assert "Native Zotero application menubar is permanently visible" in STYLE
@@ -31,11 +31,16 @@ assert all(label in READER_COLORS for label in ["Soft Cream","Soft Blue","Soft S
 assert "reader.lightTheme" in READER_COLORS and "reader.darkTheme" in READER_COLORS
 assert not any("\u3400" <= ch <= "\u9fff" for ch in STYLE + JS), "Translate source comments into English"
 
+# Include the reader module in bootstrap.js itself. Gecko's loadSubScript may
+# evaluate in a different scope than Zotero's bootstrap, making the hook inert.
+# Concatenation creates a single tested global without private loader behavior.
+MODULE = (SRC / "reader-background.js").read_text(encoding="utf-8")
+BOOTSTRAP_XPI = JS + "\n\n" + MODULE
+assert "CupertinoReaderBackground.start(id)" in BOOTSTRAP_XPI
+assert "loadSubScript" not in JS
 FILES = [
     (SRC / "manifest.json", "manifest.json"),
-    (SRC / "bootstrap.js", "bootstrap.js"),
     (SRC / "style.css", "style.css"),
-    (SRC / "reader-background.js", "reader-background.js"),
     (SRC / "icons/icon-48.png", "icons/icon-48.png"),
     (SRC / "icons/icon-96.png", "icons/icon-96.png"),
     (ROOT / "LICENSE", "LICENSE"),
@@ -44,13 +49,15 @@ FILES = [
 OUT.mkdir(exist_ok=True)
 XPI = OUT / f"cupertino-with-pdf-background-{VERSION}.xpi"
 with zipfile.ZipFile(XPI, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    archive.writestr("bootstrap.js", BOOTSTRAP_XPI)
     for source, name in FILES:
         if not source.is_file():
             raise FileNotFoundError(source)
         archive.write(source, name)
 with zipfile.ZipFile(XPI) as archive:
     assert archive.testzip() is None
-    assert archive.namelist()[0] == "manifest.json"
+    assert "bootstrap.js" in archive.namelist()
+    assert b"CupertinoReaderBackground = " in archive.read("bootstrap.js")
     assert json.loads(archive.read("manifest.json")) == MANIFEST
 
 DOWNLOAD = f"https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases/download/v{VERSION}/{XPI.name}"

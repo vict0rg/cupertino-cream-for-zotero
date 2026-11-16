@@ -326,29 +326,9 @@ menupopup {
 	transition: max-height 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
 }
 
-/* Auto-reveal item details navigation */
-
-item-pane-sidenav {
-	max-width: 10px !important;
-	min-width: 10px !important;
-	width: 10px !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: none !important;
-	border-inline-start: none !important;
-	overflow: hidden !important;
-	opacity: 0;
-	transition: max-width 280ms var(--cupertino-ease), opacity 200ms ease !important;
-}
-
-item-pane-sidenav:hover,
-item-pane-sidenav:focus-within {
-	max-width: 44px !important;
-	width: auto !important;
-	padding: 6px 4px 0 !important;
-	opacity: 1;
-	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
-}
+/* Native detail navigation: keep its full width in the layout at all times.
+ * The upstream 10px hover-expand rule overlaid the bibliography metadata.
+ * Preserve Zotero's native item-pane-sidenav sizing and stacked layouts. */
 
 /* Auto-reveal tag selector controls */
 
