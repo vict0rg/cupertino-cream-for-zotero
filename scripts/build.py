@@ -26,7 +26,7 @@ JS = (SRC / "bootstrap.js").read_text(encoding="utf-8")
 assert "loadAndRegisterSheet" in JS and "unregisterSheet" in JS
 assert "reader-background.js" in JS
 READER_COLORS = (SRC / "reader-background.js").read_text(encoding="utf-8")
-assert \"Zotero.SyncedSettings\" in READER_COLORS
+assert "Zotero.SyncedSettings" in READER_COLORS
 assert all(label in READER_COLORS for label in ["Soft Cream","Soft Blue","Soft Sage","Soft Paper"])
 assert "reader.lightTheme" in READER_COLORS and "reader.darkTheme" in READER_COLORS
 assert not any("\u3400" <= ch <= "\u9fff" for ch in STYLE + JS), "Translate source comments into English"
