@@ -1,69 +1,66 @@
-# Cupertino for Zotero with PDF Background
+# Cupertino Cream for Zotero
 
-**A calmer, Cupertino-inspired Zotero interface with soft, adjustable PDF reading backgrounds.**
+A calm, warm, Cupertino-inspired interface for Zotero, with comfortable PDF background presets and unobstructed menu/navigation controls.
 
-[**Download the latest XPI**](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases/latest) · [Releases](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases) · [Credits and licensing](CREDITS.md) · [Changelog](CHANGELOG.md)
+**Obsidian companion:** [Cupertino Cream](https://github.com/vict0rg/obsidian-cupertino-cream) — **recommended** for matching writing, note-taking and reading workspaces across Obsidian and Zotero.
 
-This is an **independent, English-language fork** of [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero), retaining the original design and animation features while restoring Zotero's native menu bar and adding comfortable PDF background presets.
+[**Download XPI**](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/download/v0.3.0/cupertino-cream-for-zotero-0.3.0.xpi) · [Releases](https://github.com/vict0rg/cupertino-cream-for-zotero/releases) · [Licensing](CREDITS.md) · [Changelog](CHANGELOG.md)
 
 ## Highlights
 
-- **Always-visible native menu bar:** File, Edit, View, Tools and Help no longer disappear on hover or when the mouse leaves the title area. Menu names follow the Zotero interface language.
-- **Cupertino interface:** rounded reading panels, macOS-inspired colors, refined typography, lightweight controls, light/dark modes and smooth tree animations.
-- **No overlapping metadata controls:** the details sidebar keeps Zotero's native navigation width instead of expanding over bibliographic fields on hover.
-- **PDF Background selector:** a clearly labeled control near **Appearance (Aa)** in the PDF reader, with four soft backgrounds and an **Original** option.
-- **Native reader themes:** changes are applied using Zotero's reader theme preferences, not semi-transparent text overlays. Existing PDF files and annotations are not modified.
-- **Reversible styling:** disabling the add-on restores Zotero's original interface styling. Reader theme preferences you selected remain under Zotero's own control.
+- **Shared Cupertino Cream palette** with the Obsidian theme: warm paper, creamy sidebars, sand-colored toolbars and restrained Cupertino red accents.
+- **Native menus always visible:** File, Edit, View, Tools, Help; translated by Zotero according to your UI language.
+- **No metadata overlay:** the right-hand navigation rail no longer expands over bibliographic details.
+- **Four PDF reading backgrounds** available from a convenient reader toolbar selector, using Zotero's built-in reader themes.
+- **Cupertino UI:** rounded panels, polished tabs, light/dark styles and smooth item-tree animations from the MIT-licensed upstream project.
+- **Separate extension identity:** the add-on ID is intentionally unchanged from the earlier "Cupertino for Zotero with PDF Background" releases, preserving existing installations and update compatibility.
+
+## Shared warm palette
+
+| Role | Color |
+| --- | --- |
+| Main reading surface | `#FFFDF9` |
+| PDF Soft Cream preset | `#F7F1E5` |
+| Left sidebar | `#F3EDE5` |
+| Toolbar and tabs | `#EEE5DC` |
+| Body text | `#332E2B` |
+| Accent red | `#FF3B30` |
+
+The light interface is deliberately cream rather than pure white. Red is used sparingly for selected rows and navigation focus.
 
 ## Install
 
-1. Download **[cupertino-with-pdf-background-0.2.2.xpi](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases/download/v0.2.2/cupertino-with-pdf-background-0.2.2.xpi)**.
-2. In Zotero, open **Tools → Plugins → gear icon → Install Plugin From File** and choose the XPI.
-3. Disable other full-interface styling plugins, including the upstream Cupertino theme, while testing. Competing stylesheets may conflict.
-4. Restart Zotero if needed. Close and reopen PDF tabs to render the additional reader control.
+1. Download the XPI from [Release v0.3.0](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/tag/v0.3.0).
+2. In Zotero, open **Tools → Plugins → gear icon → Install Plugin From File**.
+3. Disable other full-interface theme plugins during testing to avoid CSS conflicts.
+4. Restart Zotero or reopen PDF tabs if a change does not appear immediately.
 
-**Updating from v0.2.1?** v0.2.2 is a documentation-and-attribution maintenance release. It does not change the PDF controls, color presets or navigation behavior already validated in v0.2.1.
+**Upgrade note:** if you have **Cupertino for Zotero with PDF Background v0.2.x** installed, v0.3.0 is its renamed successor. Its internal add-on ID is unchanged; do **not** install it as a separate competing theme.
 
-## PDF background presets
+## PDF reading backgrounds
 
-Open a PDF and look at the **right end of the PDF toolbar**, immediately before the native **Appearance (Aa)** control. Choose a background in the **PDF Background** selector.
+Open any PDF and select **PDF Background** from the right end of the reader toolbar, immediately before **Appearance (Aa)**.
 
-| Preset | Background | Text color |
+| Preset | Background | Text |
 | --- | --- | --- |
-| **Original** | Zotero default | Zotero default |
-| **Soft Cream** | `#F7F1E5` | `#252B30` |
-| **Soft Blue** | `#EDF4F8` | `#223648` |
-| **Soft Sage** | `#EEF3EA` | `#25392E` |
-| **Soft Paper** | `#FAFAF7` | `#252B30` |
+| Original | Native Zotero defaults | Native defaults |
+| Soft Cream | `#F7F1E5` | `#252B30` |
+| Soft Blue | `#EDF4F8` | `#223648` |
+| Soft Sage | `#EEF3EA` | `#25392E` |
+| Soft Paper | `#FAFAF7` | `#252B30` |
 
-The palette is intended to provide subtle alternatives to stark white or dark sepia, not to guarantee eye-strain relief. Brightness, ambient lighting, display characteristics and individual preferences also matter.
+The extension does **not** rewrite PDF files or annotations. It adds selected themes to Zotero's native custom reader theme list only when used. These reader preferences can remain after the extension is disabled and are adjustable in Zotero Appearance.
 
-### How preferences work
+## Compatibility
 
-The add-on adds a preset to Zotero's native `readerCustomThemes` only when you select it. It preserves existing custom themes. Selecting a color updates Zotero's light and dark PDF reader theme preferences; you can also manage colors in the native **Appearance (Aa)** panel. **Original** returns to Zotero's default reader theme selection.
+- Main interface: Zotero 7–10 (declared minimum 7.0, maximum 10.0.x)
+- Native PDF theme presets: Zotero 8–10
+- Zotero 11 beta: not yet confirmed in real-client tests
+- Tested visually on Linux by the maintainer; other platforms welcome testing
 
-Uninstalling the add-on removes its menu and visual styling. **Custom reader themes and Zotero reader preferences may remain** until changed through Zotero's Appearance panel. Zotero's own sync can synchronize those preferences where supported.
+## Build and test
 
-## Supported versions and limitations
-
-| Component | Target |
-| --- | --- |
-| Cupertino interface | Zotero 7–10 |
-| Native PDF background presets | Zotero 8–10 |
-| Zotero 11 beta | Experimental, not yet verified |
-| Platforms | Intended for Zotero desktop; Linux has been visually tested |
-
-The add-on's declared compatibility range is Zotero 7 through 10.0.x. Native custom reader theme availability differs by Zotero release. For best results, test on a current supported Zotero version. Display labels provided by this add-on are in English; Zotero's own menus retain the application's selected language.
-
-## How it works
-
-The original Cupertino CSS is registered as a Zotero author-level stylesheet. The add-on preserves the native menu and sidebar geometry rather than hiding them. A reader-toolbar extension hook exposes background presets using Zotero's own custom reader theme mechanism. No PDF document data is sent to an external service by this add-on; it does not rewrite PDF contents or annotations.
-
-The extension has a unique add-on ID, `cupertino-with-pdf-background@vict0rg.github.io`, separate from the original Cupertino add-on.
-
-## Build from source
-
-Requirements: Python 3 and Node.js for syntax checks; no additional Python packages are needed.
+Run with Python 3 and Node.js:
 
 ```bash
 node --check Cupertino-Zotero/bootstrap.js
@@ -72,25 +69,20 @@ node tests/reader-background.test.cjs
 python3 scripts/build.py
 ```
 
-The reproducible build writes an installable `.xpi` and `updates.json` to `dist/`. GitHub Actions runs those checks before creating a tagged release.
+The build creates `dist/cupertino-cream-for-zotero-0.3.0.xpi` and `dist/updates.json`. GitHub Actions publishes tested releases. The add-on identifier remains `cupertino-with-pdf-background@vict0rg.github.io` for upgrade continuity even though the public name and repository changed.
 
-## Acknowledgements and licensing
+## Get listed
 
-**This project is a fork, not an official release of Cupertino for Zotero or Zotero.**
+The plugin may be submitted to third-party directories after a public release. See [MARKETPLACE_SUBMISSION.md](MARKETPLACE_SUBMISSION.md) for the [Zotero Plugins Atlas](https://zoteroplugins.org/submit) and the [Add-on Market for Zotero catalog](https://github.com/syt2/zotero-addons-scraper).
 
-- **[Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero)** — original source, styling, icons, layout and row animations, available under the **MIT License**. Its original copyright notice and license are retained.
-- **[Cupertino for Obsidian](https://github.com/svnaxis/obsidian-cupertino)** (formerly `aaaaalexis/obsidian-cupertino`) — the **MIT-licensed visual inspiration** identified by the original Cupertino for Zotero project. This fork does not directly import code or assets from the Obsidian project.
-- **[Zotero PDF Background](https://github.com/wangqian06/zotero-pdf-background)** and **[azhar-rafiq's fork](https://github.com/azhar-rafiq/zotero-pdf-background)** — inspiration for a reader-background selector. No code or artwork was copied from these repositories, since no explicit redistribution license was identified in the inspected versions.
-- **[Zotero](https://www.zotero.org/)** — host application and built-in PDF reader/theme APIs. This project is not affiliated with the Zotero team.
+Directory appearance requires separate review; this repository's presence on GitHub does not automatically list it.
 
-For precise licensing scope, acknowledgements and compliance notes see **[CREDITS.md](CREDITS.md)**, **[NOTICE.md](NOTICE.md)** and the preserved **[MIT LICENSE](LICENSE)**. Original project history is retained by the GitHub fork relationship.
+## Credits and licenses
 
-## Contributing
+This repository is a **fork** of [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero) (MIT). It preserves the original license, copyright notice, Git history, and source attribution. The warm design takes inspiration from [Notation](https://github.com/deathau/Notation-for-Obsidian) (The Unlicense), with original palette overrides. [Cupertino for Obsidian](https://github.com/svnaxis/obsidian-cupertino) (MIT) inspired the companion theme's design, not directly included Zotero code.
 
-Issues and pull requests are welcome for reader accessibility, localization, compatibility, styling conflicts, and regression reports. Please include your Zotero version, operating system, and a description of the behavior. **Remove private library information from screenshots** before posting.
+The original [Zotero PDF Background](https://github.com/wangqian06/zotero-pdf-background) and [azhar-rafiq fork](https://github.com/azhar-rafiq/zotero-pdf-background) are feature references only. **Their unlicensed code was not copied into this plugin.**
 
-Copyright notices must remain intact when redistributing adapted MIT-licensed code. Avoid importing material without a license that permits reuse.
+See [CREDITS.md](CREDITS.md), [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE) for licensing scope and notices. This is an independent community project, not endorsed by Zotero or the upstream authors.
 
----
-
-*Maintained by [vict0rg](https://github.com/vict0rg). Independent community project; no endorsement by the referenced projects is implied.*
+Maintained by [vict0rg](https://github.com/vict0rg).

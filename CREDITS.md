@@ -1,54 +1,43 @@
-# Credits, authorship, and license compliance
+# Credits, provenance and licensing
 
-This document separates **reused code and assets** from **design references** and **feature inspiration**. Not every publicly accessible GitHub repository grants permission to copy its source.
+Cupertino Cream for Zotero is an independent GitHub fork. This file distinguishes modified source material from visual or functional inspiration.
 
-## 1. Cupertino for Zotero — original source, MIT
+## Cupertino for Zotero — original code, MIT
 
-- **Upstream project:** [shenghuang-123/cupertino-for-zotero](https://github.com/shenghuang-123/cupertino-for-zotero)
-- **Authors:** Cupertino for Zotero contributors
-- **Original copyright:** Copyright (c) 2026 Cupertino for Zotero contributors
-- **License:** MIT, verified in the upstream [LICENSE](https://github.com/shenghuang-123/cupertino-for-zotero/blob/main/LICENSE)
-- **Relationship:** This repository is a GitHub fork; its Git history records the derivation.
+- Source: https://github.com/shenghuang-123/cupertino-for-zotero
+- Original authors: Cupertino for Zotero contributors
+- License: **MIT**
+- Preserved notice: Copyright (c) 2026 Cupertino for Zotero contributors
 
-**Material reused:** upstream `style.css`, `bootstrap.js`, original plugin icons, layout and visual/animation implementation, with modifications. The upstream MIT copyright and complete license text remain in this repository's [LICENSE](LICENSE) and are included in distributable builds. The fork does not represent itself as an official upstream release.
+The original styling, plugin startup logic, icons and tree animation code are derived from the upstream Cupertino implementation. The fork retains its Git history, original copyright notice and complete MIT permission terms in [LICENSE](LICENSE). They remain present in distributable XPI files. The derivative adds native menu visibility, metadata rail fixes, original reader background controls and a coordinated cream palette. The original authors do not endorse this fork.
 
-**Changes in this fork:** permanent native menu bar, native-width item details navigation, original English-language PDF background selector using Zotero's reader themes, independent add-on ID, maintenance improvements, English documentation and releases.
+## Cupertino Cream for Obsidian — matching theme, MIT
 
-## 2. Cupertino for Obsidian — design lineage, MIT
+- Companion: https://github.com/vict0rg/obsidian-cupertino-cream
+- Underlying Obsidian Cupertino: https://github.com/svnaxis/obsidian-cupertino
+- License of underlying Obsidian source: **MIT** (Copyright (c) 2026 svnaxis)
 
-- **Project:** [svnaxis/obsidian-cupertino](https://github.com/svnaxis/obsidian-cupertino), formerly `aaaaalexis/obsidian-cupertino`
-- **Author/copyright notice:** Copyright (c) 2026 svnaxis
-- **License:** MIT, verified in the [LICENSE.txt](https://github.com/svnaxis/obsidian-cupertino/blob/main/LICENSE.txt)
-- **Relationship:** A visual reference cited by the *original* Cupertino for Zotero project.
+The companion Obsidian theme is recommended for the same reading palette. It is developed and released separately; no Obsidian source code is packaged into this Zotero add-on.
 
-No code, packaged assets or fonts were imported directly from the Obsidian theme into this derivative. The reference is credited to preserve the project's design lineage.
+## Notation by deathau — visual inspiration, The Unlicense
 
-## 3. Zotero PDF Background — feature inspiration, no verified reuse license
+- Source: https://github.com/deathau/Notation-for-Obsidian
+- License: **The Unlicense**
 
-- **Original project:** [wangqian06/zotero-pdf-background](https://github.com/wangqian06/zotero-pdf-background) (also historically accessible as `q77190858/zotero-pdf-background`)
-- **Reference fork:** [azhar-rafiq/zotero-pdf-background](https://github.com/azhar-rafiq/zotero-pdf-background)
-- **Contribution:** the user-facing idea of selectable PDF background colors and an easily accessible reader control.
+Notation's Notion-like warmth influenced the design direction. The specific cream palette CSS in this project was independently implemented. No Notation CSS or images are copied, so the project is acknowledged as an aesthetic reference rather than a software dependency.
 
-**License status:** No explicit redistribution license was identified in the inspected repositories. Because publicly published source is not automatically licensed for reuse, **no PDF Background source code, icons, translations, images, or configuration resources were copied into this project**. The reader-background module was implemented separately using Zotero's native theme settings and reader-toolbar API.
+## Zotero PDF Background — functional inspiration, no copied source
 
-Attribution here acknowledges the concept and research reference; it does **not** claim that these repositories have granted a software license.
+- Original project: https://github.com/wangqian06/zotero-pdf-background
+- Reviewed fork: https://github.com/azhar-rafiq/zotero-pdf-background
 
-## 4. Zotero — platform APIs
+Both repositories informed the desired user experience of choosing PDF background colors. An explicit redistribution license was not identified in the inspected copies, so **no source code or assets from these projects are included**. This project implements its own reader selector through Zotero's native reader theme APIs.
 
-- **Project:** [Zotero](https://www.zotero.org/)
-- **Relationship:** host application. The plugin integrates through Zotero plugin lifecycle and reader APIs and stores chosen colors as native reader themes.
+## Original derivative work
 
-This project is independent and is not endorsed by Zotero. No Zotero source files are redistributed as part of this fork.
+- Maintainer: https://github.com/vict0rg
+- Project: https://github.com/vict0rg/cupertino-cream-for-zotero
 
-## 5. Cupertino for Zotero with PDF Background — derivative work
+Derivative additions include the reader presets, restored menus, navigation corrections, cream styling, packaging, tests and English documentation. The combined work is distributed under the MIT terms of its original Cupertino source, preserving upstream copyright. The long-lived extension ID remains unchanged so earlier versions can upgrade.
 
-- **Maintainer:** [vict0rg](https://github.com/vict0rg)
-- **Repository:** [cupertino-for-zotero-with-pdf-background](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background)
-- **New additions:** original PDF preset implementation, menu/sidebar fixes, packaging, tests, English-language documentation and maintenance changes.
-- **Distribution license:** MIT, retaining all upstream copyright and license notices. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
-
-### Compliance summary
-
-This distribution follows the **MIT license terms applicable to the Cupertino for Zotero source** by retaining the original copyright notice and permission text. The Obsidian Cupertino theme is an MIT-licensed *design reference* without direct code reuse. The PDF Background projects are *feature references only* and are not redistributed, because their source licensing was not confirmed. The provenance and ownership of original works are acknowledged above.
-
-This is a factual description of the materials currently included in this fork; it is not a legal certification of unrelated projects or future third-party contributions.
+See [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE). This description documents code provenance and intended license compliance; it is not a legal certification of external projects.

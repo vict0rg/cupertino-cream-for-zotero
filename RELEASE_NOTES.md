@@ -1,34 +1,23 @@
-# Cupertino for Zotero with PDF Background v0.2.2
+# Cupertino Cream for Zotero v0.3.0
 
-**Public maintenance release — documentation and attribution improvements.**
+First release under the **Cupertino Cream for Zotero** name.
 
-The underlying interface and soft PDF background controls are **unchanged from v0.2.1**, which was visually validated by the project user on Linux.
+## Changes
 
-### Features included
+- New matched warm-paper and cream palette based on coordinated Notion-like reading surfaces
+- Same restrained Cupertino red accent for selected rows and navigation
+- Cross-recommended companion theme: [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream)
+- Restored main menu bar and corrected metadata navigation geometry preserved
+- Reader **PDF Background** selector retained: Original, Soft Cream, Soft Blue, Soft Sage and Soft Paper
+- Updated repository name, documentation, licensing credits and automatic update URLs
+- Retained the **same internal add-on identifier** as the earlier "Cupertino for Zotero with PDF Background" releases so existing installations can upgrade.
 
-- Persistent Zotero menu bar (File, Edit, View, Tools, Help)
-- Cupertino-inspired light/dark interface and smooth item animations
-- Metadata navigation rail that does not overlap bibliographic fields
-- Reader toolbar **PDF Background** selector with **Original, Soft Cream, Soft Blue, Soft Sage and Soft Paper**
-- Zotero-native reader themes: no PDF file rewriting or text-layer overlays
-- Unique add-on identity independent of upstream Cupertino for Zotero
+## Installation
 
-### What's new in v0.2.2
+Download `cupertino-cream-for-zotero-0.3.0.xpi` and select **Tools → Plugins → Install Plugin From File**.
 
-- Entirely reorganized public README and installation instructions in English
-- Explicit, verified attribution to **Cupertino for Zotero (MIT)** and **Cupertino for Obsidian (MIT)**
-- Clear credit to **Zotero PDF Background** and its **azhar-rafiq fork** as *feature inspirations only*: no unlicensed code copied
-- New [NOTICE.md](NOTICE.md) documenting copyright and provenance
-- Clarified reader preference persistence, version support and how to report issues
+## License
 
-### Installation
+Based on [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero) under **MIT**, retaining the original copyright and permission notice. [Notation](https://github.com/deathau/Notation-for-Obsidian) (The Unlicense) is a visual reference, not a code dependency. [Zotero PDF Background](https://github.com/wangqian06/zotero-pdf-background) and [azhar-rafiq's fork](https://github.com/azhar-rafiq/zotero-pdf-background) are credited as functional inspirations with no unlicensed source copied.
 
-Download the attached `.xpi`, then select **Tools → Plugins → gear icon → Install Plugin From File** in Zotero. Reopen your PDF tabs if needed.
-
-**Targets:** Zotero 7–10 for the interface, Zotero 8–10 for the native PDF preset feature. Zotero 11 beta remains unverified.
-
-### Licensing
-
-The modified upstream Cupertino for Zotero source is distributed under **MIT**, preserving its original copyright and license text. **Obsidian Cupertino** is acknowledged as an MIT-licensed design reference. The **PDF Background** repositories are acknowledged for inspiration, with **no source code or assets copied** due to the absence of a confirmed reuse license. See [CREDITS.md](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/blob/main/CREDITS.md) and [NOTICE.md](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/blob/main/NOTICE.md).
-
-Independent community fork. Not affiliated with Zotero or the original projects.
+See [CREDITS.md](https://github.com/vict0rg/cupertino-cream-for-zotero/blob/main/CREDITS.md).

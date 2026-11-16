@@ -1,25 +1,20 @@
 # Copyright and third-party notices
 
-**Project:** Cupertino for Zotero with PDF Background
-
-## Upstream Cupertino for Zotero
+## Cupertino for Zotero
 
 Copyright (c) 2026 Cupertino for Zotero contributors
 
-This derivative includes modified code and icons originating in [shenghuang-123/cupertino-for-zotero](https://github.com/shenghuang-123/cupertino-for-zotero), licensed under MIT. The original copyright and full MIT permission/license text are preserved verbatim in [LICENSE](LICENSE), including in distributed XPI packages.
+The Cupertino Cream for Zotero plugin derives styling, bootstrap code, icons and animations from [shenghuang-123/cupertino-for-zotero](https://github.com/shenghuang-123/cupertino-for-zotero), licensed under MIT. The original copyright and complete license text are preserved in [LICENSE](LICENSE) and in redistributed XPIs.
 
 ## Derivative contributions
 
-New implementation and documentation: Copyright (c) 2026 vict0rg and contributors.
+Copyright (c) 2026 vict0rg and contributors for new work, to the extent applicable. The derivative source and documentation are distributed on the same MIT terms as the upstream, with all upstream notices preserved.
 
-These contributions are distributed under the same MIT terms stated in [LICENSE](LICENSE), to the extent the respective contributors hold copyright in them. The original author's notices are retained.
+## Third-party visual and feature references (no copied code)
 
-## References without redistributed source
+- [Notation](https://github.com/deathau/Notation-for-Obsidian) — The Unlicense; warm Notion-inspired visual reference.
+- [Cupertino for Obsidian](https://github.com/svnaxis/obsidian-cupertino) — MIT; visual lineage for companion theme.
+- [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream) — separately maintained matching theme.
+- [Zotero PDF Background](https://github.com/wangqian06/zotero-pdf-background) and [azhar-rafiq fork](https://github.com/azhar-rafiq/zotero-pdf-background) — functional references. No source code or assets copied due to unconfirmed reuse permissions.
 
-- **Cupertino for Obsidian** (Copyright (c) 2026 svnaxis; MIT): design inspiration attributed to the upstream project. This derivative does not directly distribute the Obsidian theme's code or assets.
-- **Zotero PDF Background** (wangqian06 and azhar-rafiq repositories): a cited feature inspiration. No code or assets from those repositories are redistributed; an explicit reuse license was not confirmed.
-- **Zotero**: third-party host application; not bundled or endorsed.
-
-See [CREDITS.md](CREDITS.md) for full links, scope of reuse, and license reasoning.
-
-Zotero and other third-party project names remain the property of their respective owners. Use of a name for identification or attribution does not imply endorsement.
+These notices do not imply affiliation or endorsement. See [CREDITS.md](CREDITS.md).

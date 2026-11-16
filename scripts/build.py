@@ -13,12 +13,12 @@ MANIFEST = json.loads((SRC / "manifest.json").read_text(encoding="utf-8"))
 VERSION = MANIFEST["version"]
 ADDON = MANIFEST["applications"]["zotero"]
 
-assert MANIFEST["name"] == "Cupertino for Zotero with PDF Background"
+assert MANIFEST["name"] == "Cupertino Cream for Zotero"
 assert ADDON["id"] == "cupertino-with-pdf-background@vict0rg.github.io"
 assert ADDON["strict_min_version"] == "7.0"
 assert ADDON["strict_max_version"] == "10.0.*"
 assert ADDON["update_url"].startswith("https://github.com/vict0rg/")
-assert VERSION == "0.2.2", "Review version and release notes before a new release"
+assert VERSION == "0.3.0", "Review version and release notes before a new release"
 STYLE = (SRC / "style.css").read_text(encoding="utf-8")
 assert "#menubar-items {\n\tmax-width: 14px" not in STYLE, "Native menu must remain visible"
 assert "Native Zotero application menubar is permanently visible" in STYLE
@@ -48,7 +48,7 @@ FILES = [
     (ROOT / "NOTICE.md", "NOTICE.md"),
 ]
 OUT.mkdir(exist_ok=True)
-XPI = OUT / f"cupertino-with-pdf-background-{VERSION}.xpi"
+XPI = OUT / f"cupertino-cream-for-zotero-{VERSION}.xpi"
 with zipfile.ZipFile(XPI, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
     archive.writestr("bootstrap.js", BOOTSTRAP_XPI)
     for source, name in FILES:
@@ -61,7 +61,7 @@ with zipfile.ZipFile(XPI) as archive:
     assert b"CupertinoReaderBackground = " in archive.read("bootstrap.js")
     assert json.loads(archive.read("manifest.json")) == MANIFEST
 
-DOWNLOAD = f"https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases/download/v{VERSION}/{XPI.name}"
+DOWNLOAD = f"https://github.com/vict0rg/cupertino-cream-for-zotero/releases/download/v{VERSION}/{XPI.name}"
 UPDATES = {"addons": {ADDON["id"]: {"updates": [{
     "version": VERSION,
     "update_link": DOWNLOAD,

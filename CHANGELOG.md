@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0 — Cupertino Cream unified design
+
+- Public extension renamed to **Cupertino Cream for Zotero**, retaining the installed add-on ID.
+- Introduced cream reading panels, warm toolbar and sidebar materials, coordinated with the Obsidian companion.
+- Recommended the companion [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream) in English documentation.
+- Updated release asset name, GitHub repository links and automatic update URL after repository rename.
+- Retained all menu visibility, non-overlapping metadata navigation, reader background presets and motion fixes.
+- Added third-party directory submission guide and updated license attribution.
+
 ## 0.2.2 — Public documentation and attribution (no functional changes)
 
 - Reorganized the public README in English with complete installation, palette and compatibility instructions.
