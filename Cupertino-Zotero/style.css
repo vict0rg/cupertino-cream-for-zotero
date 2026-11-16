@@ -729,3 +729,64 @@ collapsible-section > .head:hover {
 		transition: none !important;
 	}
 }
+
+/* ==========================================================
+   CUPERTINO CREAM — shared warm-reading palette (preview)
+   Matches the Obsidian Cupertino Cream theme's design tokens.
+   Only design variables change: no PDF or menu functionality is modified.
+   In a future release, the installed add-on ID will remain the same.
+   ========================================================== */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-toolbar: #EEE5DC !important;
+    --color-tabbar: #EEE5DC !important;
+    --color-sidepane: #F3EDE5 !important;
+    --color-background: #FFFDF9 !important;
+    --color-button: #FFFDF9 !important;
+    --color-control: #FFFDF9 !important;
+    --color-menu: rgba(255,253,249,0.94) !important;
+    --color-menu-opaque: #FFFDF9 !important;
+    --color-border: rgba(104,79,67,0.18) !important;
+    --color-border50: rgba(104,79,67,0.10) !important;
+    --color-stripe: rgba(104,79,67,0.023) !important;
+    --color-stripe-on-background: #FCF8F2 !important;
+    --color-quinary-on-background: #F9F4ED !important;
+    --color-quarternary-on-background: #F2E9DE !important;
+    --color-quinary-on-sidepane: #F0E8DE !important;
+    --color-quarternary-on-sidepane: #E9DFD3 !important;
+    --cupertino-row-selected-bg: rgba(255,59,48,0.10) !important;
+    --cupertino-row-selected-text: #332E2B !important;
+    --cupertino-row-selected-title: #AC3833 !important;
+    --accent-red: #FF3B30 !important;
+    --color-accent: #FF3B30 !important;
+    --color-accent-text: #FFFFFF !important;
+    --accent-blue: #FF3B30 !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-toolbar: #38312D !important;
+    --color-tabbar: #38312D !important;
+    --color-sidepane: #302B28 !important;
+    --color-background: #262321 !important;
+    --color-button: #38312D !important;
+    --color-menu: rgba(48,43,40,0.96) !important;
+    --color-menu-opaque: #302B28 !important;
+    --color-border: rgba(245,238,230,0.16) !important;
+    --color-border50: rgba(245,238,230,0.09) !important;
+    --color-stripe-on-background: #292522 !important;
+    --color-quinary-on-background: #302B28 !important;
+    --color-quarternary-on-background: #403831 !important;
+    --color-quinary-on-sidepane: #38312D !important;
+    --color-quarternary-on-sidepane: #493F38 !important;
+    --cupertino-row-selected-bg: rgba(255,107,97,0.19) !important;
+    --cupertino-row-selected-text: #F5EEE6 !important;
+    --cupertino-row-selected-title: #FF958D !important;
+    --accent-red: #FF6B61 !important;
+    --color-accent: #FF6B61 !important;
+    --color-accent-text: #241E1C !important;
+    --accent-blue: #FF6B61 !important;
+  }
+}
+/* Preserve the original #FF3B30 red as a small focus color,
+   not as body text. Keep PDF Soft Cream = #F7F1E5. */
