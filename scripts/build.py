@@ -18,7 +18,7 @@ assert ADDON["id"] == "cupertino-with-pdf-background@vict0rg.github.io"
 assert ADDON["strict_min_version"] == "7.0"
 assert ADDON["strict_max_version"] == "10.0.*"
 assert ADDON["update_url"].startswith("https://github.com/vict0rg/")
-assert VERSION == "0.2.1", "Review version and release notes before a new release"
+assert VERSION == "0.2.2", "Review version and release notes before a new release"
 STYLE = (SRC / "style.css").read_text(encoding="utf-8")
 assert "#menubar-items {\n\tmax-width: 14px" not in STYLE, "Native menu must remain visible"
 assert "Native Zotero application menubar is permanently visible" in STYLE
@@ -45,6 +45,7 @@ FILES = [
     (SRC / "icons/icon-96.png", "icons/icon-96.png"),
     (ROOT / "LICENSE", "LICENSE"),
     (ROOT / "CREDITS.md", "CREDITS.md"),
+    (ROOT / "NOTICE.md", "NOTICE.md"),
 ]
 OUT.mkdir(exist_ok=True)
 XPI = OUT / f"cupertino-with-pdf-background-{VERSION}.xpi"

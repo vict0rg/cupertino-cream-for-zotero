@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.2 — Public documentation and attribution (no functional changes)
+
+- Reorganized the public README in English with complete installation, palette and compatibility instructions.
+- Verified and documented Cupertino for Zotero's MIT licensing and the original Cupertino for Obsidian MIT design reference.
+- Credited both the original Zotero PDF Background project and azhar-rafiq's fork strictly as inspiration; their source is not incorporated.
+- Added NOTICE.md and specific release notes to clarify provenance and copyright.
+- Maintained the successful v0.2.1 menu, metadata sidebar and PDF preset behaviors without functional changes.
+
 ## 0.2.1 — Reader toolbar and metadata navigation fixes (experimental)
 
 - Reader background selector: bundle the reader code directly into the Zotero bootstrap script instead of executing it through a separate subscript scope; register the toolbar hook after Zotero UI is ready.

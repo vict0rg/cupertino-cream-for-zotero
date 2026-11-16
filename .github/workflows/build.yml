@@ -1,4 +1,4 @@
-name: Build and publish experimental XPI
+name: Build and publish XPI
 on:
   push:
     branches: [main]
@@ -20,19 +20,19 @@ jobs:
       - name: Upload validated build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cupertino-with-pdf-background-0.2.1
+          name: cupertino-with-pdf-background-0.2.2
           path: dist/*
-      - name: Publish first preview pre-release
+      - name: Publish documented public release
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          TAG="v0.2.1"
+          TAG="v0.2.2"
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "$TAG already exists; leaving the original release intact."
           else
             gh release create "$TAG" dist/*.xpi dist/updates.json \
               --target "$GITHUB_SHA" --title "Cupertino for Zotero with PDF Background $TAG" \
-              --prerelease --notes-file CHANGELOG.md
+              --notes-file RELEASE_NOTES.md
           fi
