@@ -1,21 +1,9 @@
-/* Cupertino for Zotero · bootstrap.js
- * 样式：AUTHOR_SHEET 注入（make-it-red 官方模式），即时生效
- * v1.7.3 条目展开/收起动画实现说明：
- *   twisty 开合由官方 itemTree.js 在 mouseup 时触发；windowed-list
- *   的 invalidate() 会原地复用旧行元素置换内容，展开时通常没有
- *   新增 .row 节点，靠 addedNodes 无法识别子行。因此改为：
- *   1. mouseup 捕获阶段（先于官方监听器）快照行布局；
- *   2. MutationObserver 波次结束后，按 aria-level 圈出插入的子行
- *      播放级联入场动画；
- *   3. 对因插入/移除而平移的行，按快照 top 做 FLIP 位移。
- *   v1.7.3 修复部分条目无动画/动画错乱：
- *   - windowed-list 滚动重渲染的新行是 appendChild 到 DOM 末尾的，
- *     向上滚动后 DOM children 顺序与视觉顺序脱钩，旧版基于
- *     "DOM 顺序 == 行逻辑顺序" 的位置算术全部失效；
- *   - 改为快照按 style.top 空间排序（视觉顺序），FLIP 按元素身份
- *     匹配新旧 top（每个幸存行自己比自己），彻底免疫 DOM 乱序；
- *   - 级联间隔 55→65ms、封顶 330→520ms（多附件条目后段不再同时
- *     入场出现"一块整体"感）。
+/*
+ * Cupertino for Zotero with PDF Background — forked bootstrap.
+ * Upstream: shenghuang-123/cupertino-for-zotero (MIT).
+ * The upstream animation captures the tree layout on mouseup, then matches
+ * visible rows by element identity and visual top (not DOM order).
+ * Newly expanded descendants cascade into view; shifted rows use FLIP.
  */
 
 var registeredSheets = [];
@@ -30,7 +18,7 @@ function getStyleService() {
 		.getService(Components.interfaces.nsIStyleSheetService);
 }
 
-/* ---------- 条目展开动画 ---------- */
+/* Item expansion and collapse animations */
 
 function onRowAnimationEnd(event) {
 	var row = event.currentTarget;
@@ -69,9 +57,9 @@ function rowTop(row) {
 	return parseFloat(row.style.top) || 0;
 }
 
-// 收集渲染窗口内所有行并按 style.top 排序（空间/视觉顺序）。
-// DOM children 顺序在滚动重渲染后与视觉顺序脱钩（新行 appendChild
-// 到末尾），必须用 top 排序做位置算术。
+// Capture visible rows sorted by on-screen top; recycled DOM order is unreliable.
+
+
 function snapshotRows(inner) {
 	var out = [];
 	var children = inner.children;
@@ -90,12 +78,12 @@ function findRowPos(rows, elem) {
 	return -1;
 }
 
-// 消费 pending 快照；返回 true 表示已应用动画（调用方负责清空 pending）
+// Apply the pending tree snapshot, reporting whether an animation was applied.
 function applyTreeChangeAnimation(tree) {
 	var pending = tree._cupertinoPendingExpand;
 	if (!pending) return false;
 	var now = snapshotRows(pending.inner);
-	// 父行元素已不存在（滚出渲染范围）才真正放弃
+	// Cancel if the parent row was recycled or scrolled out of view.
 	var parentNowPos = findRowPos(now, pending.row);
 	if (parentNowPos < 0) {
 		tree._cupertinoPendingExpand = null;
@@ -107,21 +95,21 @@ function applyTreeChangeAnimation(tree) {
 		return false;
 	}
 
-	// 旧快照中紧随父行且层级更深的行 = 原本已展开的后代（本次是收起）
+	// Count descendant rows that were already expanded in the previous snapshot.
 	var oldDescendants = 0;
 	for (var d = parentOldPos + 1; d < pending.rows.length; d++) {
 		if (pending.rows[d].level <= pending.parentLevel) break;
 		oldDescendants++;
 	}
 
-	// 按元素身份建立旧 top 映射，FLIP 与 DOM 顺序无关
+	// Track previous vertical position by element identity, not DOM order.
 	var oldTopMap = new Map();
 	for (var m = 0; m < pending.rows.length; m++) {
 		oldTopMap.set(pending.rows[m].elem, pending.rows[m].top);
 	}
 
 	if (oldDescendants === 0) {
-		// 展开：新快照中紧随父行的深层行即插入的子行
+		// Expanding: the new descendants immediately follow the parent visually.
 		var childRows = [];
 		for (var i = parentNowPos + 1; i < now.length; i++) {
 			if (now[i].level <= pending.parentLevel) break;
@@ -142,7 +130,7 @@ function applyTreeChangeAnimation(tree) {
 		return true;
 	}
 
-	// 收起：幸存行按元素身份从旧位置上滑归位
+	// Collapsing: animate surviving rows to their new positions.
 	var collapsed = [];
 	for (var s2 = 0; s2 < now.length; s2++) {
 		var r2 = now[s2];
@@ -202,12 +190,12 @@ function onWindowMouseUp(event) {
 		rows: snapshotRows(inner),
 		time: Date.now()
 	};
-	// 兜底：若 tree 被销毁重建导致 observer 丢失，此处补挂
+	// Reattach the observer if Zotero recreated the tree.
 	ensureTreeObserver(target.ownerGlobal, tree);
 }
 
-// 用户滚动（滚轮/拖滚动条）后 windowed-list 重渲染，快照元素集合
-// 大量失效，直接废弃避免错播
+// Drop pending snapshots after scrolling because virtualization recycles rows.
+
 function onWindowScroll(event) {
 	var node = event.target;
 	while (node && node.nodeType === 1) {
@@ -219,7 +207,7 @@ function onWindowScroll(event) {
 	}
 }
 
-/* ---------- 窗口生命周期 ---------- */
+/* Window lifecycle */
 
 function attachToWindow(win) {
 	if (win._cupertinoAttached) return;
@@ -262,7 +250,7 @@ function forEachWindow(callback) {
 	}
 }
 
-/* ---------- 插件生命周期 ---------- */
+/* Plugin lifecycle */
 
 function install(data, reason) {}
 
@@ -272,7 +260,7 @@ function startup({ id, version, resourceURI, rootURI = resourceURI.spec }, reaso
 	styleService.loadAndRegisterSheet(uri, styleService.AUTHOR_SHEET);
 	registeredSheets.push({ uri, type: styleService.AUTHOR_SHEET });
 
-	// 已打开的窗口立即挂载；后续新窗口在 load 后挂载
+	// Attach to current windows now and to future windows once loaded.
 	forEachWindow(attachToWindow);
 	windowListener = {
 		onOpenWindow: function (aWindow) {

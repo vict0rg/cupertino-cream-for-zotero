@@ -1,33 +1,10 @@
-/* ============================================================
-   Cupertino for Zotero · v1.7.6
-   macOS 原生风格主题（Zotero 7–9）· 红色主题版
+/* Cupertino for Zotero with PDF Background — visual styles.
+ * Fork of shenghuang-123/cupertino-for-zotero (MIT).
+ * Upstream 1.7.6 macOS-inspired layout and restrained red accent retained.
+ * This derivative keeps the native application menubar permanently visible.
+ */
 
-   v1.7.6 变更
-   · 右栏（条目详情面板）底色与顶栏统一：面板内 sidepane
-     材质随 --color-toolbar，卡片投影移除（与 v1.7.4 左栏同款处理）
-
-   v1.7.5 变更
-   · 新增插件图标（红底圆角方块 + 白色几何 Z），manifest 注册 icons 字段
-
-   v1.7.4 变更
-   · 左栏（集合树 + 标签选择器）底色与顶栏统一
-     （--color-sidepane → --color-toolbar，深浅色模式同步）
-   · 移除集合面板卡片投影：底色统一后投影会留下矩形灰晕
-
-   v1.7.0 变更
-   · 条目列表展开附件：子行级联入场动画（淡入 + 上滑，
-     每行延迟 40ms，bootstrap.js 配合注入动画类）
-   · twisty 箭头旋转过渡增强（125ms → 200ms 苹果曲线）
-   · 尊重系统"减弱动态效果"设置（prefers-reduced-motion）
-
-   v1.6.x 变更
-   · 集合树图标 → 红色竖线（隐藏原彩色图标，3px 圆角红条）
-   · 详情面板折叠区/文库和分类图标统一灰色
-   · 所有实底红改浅红底（浅色 11% / 深色 26%），统一规范
-   · 删除全部灰色分割线；滑出式自动隐藏保留 10px 感应条
-   ============================================================ */
-
-/* ---------- Cupertino 设计令牌 ---------- */
+/* Cupertino design tokens */
 
 :root {
 	--cupertino-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
@@ -39,15 +16,15 @@
 	--cupertino-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 	--cupertino-ease-out: cubic-bezier(0.2, 0.9, 0.3, 1);
 
-	/* 全局消线：所有 panedivider / tab 底线变透明 */
+	/* Hide visual separators without removing draggable splitters */
 	--tab-border: 0 solid transparent !important;
 	--color-panedivider: transparent !important;
 }
 
-/* 浅色模式：macOS 浅色系统色板 · 红色主题 */
+/* Light color scheme: Cupertino red accent */
 @media (prefers-color-scheme: light) {
 	:root {
-		/* 主题强调色 → macOS 系统红 */
+		/* System-red accent */
 		--accent-red: #ff3b30 !important;
 		--accent-blue: #ff3b30 !important;
 		--accent-blue10: rgba(255, 59, 48, 0.1) !important;
@@ -61,11 +38,11 @@
 		--accent-teal: #64d2ff !important;
 		--accent-highlight: rgba(255, 234, 0, 0.45) !important;
 
-		/* 选中态（菜单高亮/焦点） */
+		/* Selection and focus */
 		--color-accent: #ff3b30 !important;
 		--color-accent-text: #ffffff !important;
 
-		/* macOS 界面色板：窗口底灰、卡片白 */
+		/* macOS-style window and card materials */
 		--color-toolbar: #e9e9eb !important;
 		--color-tabbar: #e9e9eb !important;
 		--color-sidepane: #f6f6f8 !important;
@@ -85,12 +62,12 @@
 		--color-quinary-on-sidepane: #ececf0 !important;
 		--color-quarternary-on-sidepane: #e0e0e4 !important;
 
-		/* 条目列表选中行：浅红底 + 深红字 */
+		/* Muted selected item background and contrasting text */
 		--cupertino-row-selected-bg: rgba(255, 59, 48, 0.11) !important;
 		--cupertino-row-selected-text: #1d1d1f !important;
 		--cupertino-row-selected-title: #d70015 !important;
 
-		/* 标签色保留柔和色板（数据语义色，非主题色） */
+		/* Preserve semantic tag colors */
 		--tag-red: rgb(254, 112, 112) !important;
 		--tag-orange: rgb(255, 159, 10) !important;
 		--tag-yellow: rgb(255, 212, 0) !important;
@@ -119,7 +96,7 @@
 	}
 }
 
-/* 深色模式：macOS 深色系统色板 · 红色主题 */
+/* Dark color scheme */
 @media (prefers-color-scheme: dark) {
 	:root {
 		--accent-red: #ff453a !important;
@@ -157,7 +134,7 @@
 		--color-quinary-on-sidepane: #2e2e32 !important;
 		--color-quarternary-on-sidepane: #36363a !important;
 
-		/* 深色模式选中行：半透明红底 + 浅红强调 */
+		/* Dark color scheme */
 		--cupertino-row-selected-bg: rgba(255, 69, 58, 0.26) !important;
 		--cupertino-row-selected-text: #f2f2f4 !important;
 		--cupertino-row-selected-title: #ff8a80 !important;
@@ -190,7 +167,7 @@
 	}
 }
 
-/* ---------- 全局字体：SF Pro 观感 ---------- */
+/* System typography and fallbacks */
 
 #main-window,
 window,
@@ -202,7 +179,7 @@ menupopup {
 	font-family: var(--cupertino-font) !important;
 }
 
-/* ---------- 窗口统一底色 ---------- */
+/* Unified window surface */
 
 #main-window,
 #zotero-pane {
@@ -214,7 +191,7 @@ menupopup {
 	border-bottom: none !important;
 }
 
-/* 标签栏融入窗口底色，无底线 */
+/* Integrated tab bar with no bottom stroke */
 #tab-bar-container,
 #zotero-title-bar,
 #titlebar {
@@ -229,7 +206,7 @@ menupopup {
 	border-bottom: none !important;
 }
 
-/* ---------- 三栏面板：圆角卡片（无描边，仅柔和投影） ---------- */
+/* Rounded three-pane card layout */
 
 #zotero-collections-pane {
 	background: var(--color-toolbar) !important;
@@ -264,7 +241,7 @@ menupopup {
 	border: none !important;
 }
 
-/* 分离条视觉隐藏（拖拽保留） */
+/* Keep pane splitters usable while visually subdued */
 #zotero-collections-splitter,
 #zotero-items-splitter,
 #zotero-context-splitter,
@@ -273,37 +250,15 @@ menupopup {
 	border: none !important;
 }
 
-/* ============================================================
-   滑出式自动隐藏 · 边缘感应条模式（v1.5.0）
-   收起 = 保留 10px 透明感应条（贴近面板边缘触发）；
-   展开 = 完整显示（200ms 滑出 / 280ms 收起）。
-   保底：focus-within（键盘/搜索聚焦）、has([open])（下拉）
-   ============================================================ */
+/* Upstream auto-hide layout: utility controls only, never the application menubar.
+ * Retain keyboard focus and open-menu fallbacks in these controls. */
 
-/* —— 1. 顶部菜单文字：Z 图标右侧窄热区 —— */
+/* Native Zotero application menubar is permanently visible.
+ * Do not collapse #menubar-items or alter its width/opacity/visibility.
+ * Zotero owns the File, Edit, View, Tools and Help menus.
+ */
 
-#menubar-items {
-	max-width: 14px !important;
-	min-width: 14px !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: none !important;
-	overflow: hidden !important;
-	opacity: 0;
-	transition: max-width 280ms var(--cupertino-ease), opacity 200ms ease !important;
-}
-
-#menubar-items:hover,
-#toolbar-menubar:hover #menubar-items,
-#menubar-items:focus-within,
-#menubar-items:has(menu[open]) {
-	max-width: 420px !important;
-	padding: 0 4px !important;
-	opacity: 1;
-	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
-}
-
-/* —— 2. 标签栏右侧按钮（标签菜单/同步）：右上角窄热区 —— */
+/* Auto-reveal auxiliary tab controls */
 
 #zotero-tabs-toolbar {
 	max-width: 14px !important;
@@ -326,7 +281,7 @@ menupopup {
 	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
 }
 
-/* —— 3. 集合栏工具栏：面板顶部 10px 感应条 —— */
+/* Auto-reveal collection toolbar */
 
 #zotero-toolbar-collection-tree {
 	max-height: 10px !important;
@@ -349,7 +304,7 @@ menupopup {
 	transition: max-height 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
 }
 
-/* —— 4. 主工具栏（新建/魔棒/搜索）：面板顶部 10px 感应条 —— */
+/* Auto-reveal item toolbar */
 
 #zotero-toolbar-item-tree {
 	max-height: 10px !important;
@@ -371,7 +326,7 @@ menupopup {
 	transition: max-height 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
 }
 
-/* —— 5. 详情面板图标列：面板左缘 10px 感应条 —— */
+/* Auto-reveal item details navigation */
 
 item-pane-sidenav {
 	max-width: 10px !important;
@@ -395,7 +350,7 @@ item-pane-sidenav:focus-within {
 	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
 }
 
-/* —— 6. 标签选择器按钮组：右侧窄热区 —— */
+/* Auto-reveal tag selector controls */
 
 .tag-selector-actions {
 	max-width: 12px !important;
@@ -416,17 +371,9 @@ item-pane-sidenav:focus-within {
 	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
 }
 
-/* ============================================================
-   图标处理（v1.6.0）
-   · 集合树：隐藏彩色图标，改 3px 红色竖线（twisty 箭头
-     是独立元素不受影响，展开折叠正常）
-   · 详情面板折叠区 + sidenav：多色内嵌 SVG，fill 覆盖无效，
-     用 filter: grayscale 统一灰色
-   ============================================================ */
+/* Simplify item-tree and detail icons, preserving functional twisties */
 
-/* 集合树行图标 → 红色竖线
-   图标元素本身就是 span.icon-css.cell-icon，SVG 通过元素
-   自身 background 绘制（无子元素），必须 background:none 抹除 */
+/* Collection icons become narrow red selection markers */
 #zotero-collections-tree .cell.primary .cell-icon:not(.twisty) {
 	background: none !important;
 	-moz-context-properties: none !important;
@@ -452,29 +399,29 @@ item-pane-sidenav:focus-within {
 	}
 }
 
-/* 悬浮行：竖线加深 */
+/* Hovered rows */
 #zotero-collections-tree .row:hover:not(.selected) .cell.primary .cell-icon:not(.twisty)::after {
 	background: rgba(255, 59, 48, 0.65) !important;
 }
 
-/* 选中行：竖线全红 */
+/* Selected rows */
 #zotero-collections-tree .row.selected .cell.primary .cell-icon:not(.twisty)::after {
 	background: var(--accent-red) !important;
 }
 
-/* 详情面板「文库和分类」树：彩色集合图标统一灰色 */
+/* Neutralize colored icons in the library/category area */
 libraries-collections-box .cell-icon,
 libraries-collections-box .icon-css,
 libraries-collections-box .cell-image {
 	filter: grayscale(100%) !important;
 }
 
-/* 详情面板折叠区标题图标：统一灰色 */
+/* Muted detail-section icons */
 collapsible-section > .head .title-box {
 	filter: grayscale(100%) !important;
 }
 
-/* sidenav 图标列（多色图标全灰） */
+/* Consistent sidebar icon treatment */
 item-pane-sidenav {
 	--material-sidepane: transparent;
 }
@@ -485,9 +432,7 @@ item-pane-sidenav .btn {
 	filter: grayscale(100%) !important;
 }
 
-/* ============================================================
-   条目列表选中行：浅红底 + 红字（v1.5.0 减淡）
-   ============================================================ */
+/* Muted selected item background and contrasting text */
 
 .virtualized-table .row.selected,
 #zotero-items-tree .drag-image-container .row.selected {
@@ -495,12 +440,12 @@ item-pane-sidenav .btn {
 	color: var(--cupertino-row-selected-text) !important;
 }
 
-/* 选中行标题列红色强调 */
+/* Selected rows */
 .virtualized-table .row.selected .cell.primary {
 	color: var(--cupertino-row-selected-title) !important;
 }
 
-/* 集合树选中行：浅红底红字（11%/26% 统一规范） */
+/* Selected rows */
 #zotero-collections-tree .row.selected {
 	background-color: var(--cupertino-row-selected-bg) !important;
 	color: var(--cupertino-row-selected-title) !important;
@@ -510,11 +455,9 @@ item-pane-sidenav .btn {
 	color: var(--cupertino-row-selected-title) !important;
 }
 
-/* ============================================================
-   全局消线（v1.5.0）
-   ============================================================ */
+/* Hide visual separators without removing draggable splitters */
 
-/* 列表表头：无线 */
+/* Table heading separators */
 .virtualized-table-header,
 .virtualized-table-header .cell {
 	background: transparent !important;
@@ -523,7 +466,7 @@ item-pane-sidenav .btn {
 	box-shadow: none !important;
 }
 
-/* sidenav：左边线 + 分隔横线全删 */
+/* Detail sidebar dividers */
 item-pane-sidenav,
 item-pane-sidenav.stacked {
 	border-inline-start: none !important;
@@ -534,12 +477,12 @@ item-pane-sidenav .divider {
 	display: none !important;
 }
 
-/* 标签选择器头部顶线删除 */
+/* Tag selector top border */
 .tag-selector-filter-container {
 	border-top: none !important;
 }
 
-/* 面板内残余分隔线兜底 */
+/* Remaining panel dividers */
 #zotero-collections-pane,
 #zotero-items-pane-container,
 #zotero-item-pane,
@@ -547,7 +490,7 @@ item-pane-sidenav .divider {
 	border: none !important;
 }
 
-/* ---------- 工具栏按钮：macOS 三态动效 ---------- */
+/* macOS-inspired toolbar button states */
 
 toolbarbutton {
 	border-radius: var(--cupertino-radius-s) !important;
@@ -576,7 +519,7 @@ toolbarbutton[disabled="true"] {
 	background-color: transparent !important;
 }
 
-/* sidenav 图标按钮悬浮 */
+/* Detail navigation hover */
 item-pane-sidenav .btn {
 	border-radius: var(--cupertino-radius-s) !important;
 	transition: background-color 120ms var(--cupertino-ease) !important;
@@ -586,7 +529,7 @@ item-pane-sidenav .btn:hover {
 	background-color: var(--fill-quarternary) !important;
 }
 
-/* ---------- 列表行 ---------- */
+/* Item row styling */
 
 .virtualized-table .row:hover:not(.selected) {
 	background-color: var(--fill-quarternary) !important;
@@ -613,7 +556,7 @@ item-pane-sidenav .btn:hover {
 	border-bottom-right-radius: var(--cupertino-radius-s) !important;
 }
 
-/* ---------- 标签页：Safari 风格 ---------- */
+/* Safari-inspired tabs */
 
 #tab-bar-container .tab {
 	border-radius: 7px !important;
@@ -636,7 +579,7 @@ item-pane-sidenav .btn:hover {
 	}
 }
 
-/* ---------- 搜索框：聚焦红色光环 ---------- */
+/* Search focus ring */
 
 search-textbox,
 quick-search-textbox {
@@ -662,7 +605,7 @@ quick-search-textbox::placeholder {
 	color: var(--fill-tertiary) !important;
 }
 
-/* ---------- 菜单：毛玻璃圆角 + 红色高亮 ---------- */
+/* Rounded translucent popup menus */
 
 menupopup {
 	background: var(--color-menu) !important;
@@ -689,7 +632,7 @@ menupopup menuseparator {
 	border-color: var(--color-border50) !important;
 }
 
-/* ---------- 滚动条 ---------- */
+/* Scrollbars */
 
 scrollbar {
 	appearance: none !important;
@@ -725,7 +668,7 @@ scrollbar scrollbarbutton {
 	display: none !important;
 }
 
-/* ---------- 通用控件 ---------- */
+/* Common controls */
 
 button,
 toolbarbutton,
@@ -745,7 +688,7 @@ button:hover:not([disabled="true"]) {
 	box-shadow: inset 0 0 0 0.5px var(--color-border50) !important;
 }
 
-/* 详情面板折叠区标题 */
+/* Collapsible detail headers */
 collapsible-section > .head {
 	border-radius: var(--cupertino-radius-s) !important;
 	transition: background-color 120ms var(--cupertino-ease) !important;
@@ -755,15 +698,9 @@ collapsible-section > .head:hover {
 	background-color: var(--fill-quinary) !important;
 }
 
-/* ============================================================
-   条目列表展开/收起动画（v1.7.3）
-   展开时子行从上方滑入淡入并按序级联（每行 +65ms，上限 520ms）；
-   下方平移行按 FLIP 偏移量滑动（展开下滑入、收起上滑入），
-   时长与级联尾部对齐避免"下方先到位"的割裂感。
-   动画类由 bootstrap.js 在 twisty mouseup 快照 + 行级
-   aria-level 比对后注入；行本身为 top 绝对定位
-   （windowed-list），transform 动画安全。
-   ============================================================ */
+/* Cascading tree expansion and FLIP row movement.
+ * The row animations are produced by bootstrap.js after mouseup snapshots.
+ * Reduced-motion preferences override these animations. */
 
 @keyframes cupertino-row-in {
 	from {
@@ -794,13 +731,13 @@ collapsible-section > .head:hover {
 	animation: cupertino-row-shift 520ms var(--cupertino-ease-out) both;
 }
 
-/* twisty 箭头旋转：官方 125ms ease 增强为苹果曲线 */
+/* Twisty rotation easing */
 #zotero-items-tree .twisty,
 #zotero-collections-tree .twisty {
 	transition: transform 200ms var(--cupertino-ease-out) !important;
 }
 
-/* 系统"减弱动态效果"时关闭条目动画 */
+/* Honor reduced-motion accessibility preference */
 @media (prefers-reduced-motion: reduce) {
 	#zotero-items-tree .row.cupertino-row-in,
 	#zotero-items-tree .row.cupertino-row-shift {

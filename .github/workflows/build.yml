@@ -1,0 +1,38 @@
+name: Build and publish experimental XPI
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+      - name: Verify JavaScript syntax
+        run: node --check Cupertino-Zotero/bootstrap.js
+      - name: Build XPI and update manifest
+        run: python3 scripts/build.py
+      - name: Upload validated build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cupertino-with-pdf-background-0.1.0
+          path: dist/*
+      - name: Publish first preview pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="v0.1.0"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "$TAG already exists; leaving the original release intact."
+          else
+            gh release create "$TAG" dist/*.xpi dist/updates.json \
+              --target "$GITHUB_SHA" --title "Cupertino for Zotero with PDF Background $TAG" \
+              --prerelease --notes-file CHANGELOG.md
+          fi
