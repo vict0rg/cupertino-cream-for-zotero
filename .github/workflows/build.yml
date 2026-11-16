@@ -14,13 +14,13 @@ jobs:
       - name: Checkout fork
         uses: actions/checkout@v4
       - name: Verify JavaScript syntax
-        run: node --check Cupertino-Zotero/bootstrap.js
+        run: node --check Cupertino-Zotero/bootstrap.js && node --check Cupertino-Zotero/reader-background.js
       - name: Build XPI and update manifest
         run: python3 scripts/build.py
       - name: Upload validated build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cupertino-with-pdf-background-0.1.0
+          name: cupertino-with-pdf-background-0.2.0
           path: dist/*
       - name: Publish first preview pre-release
         env:
@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          TAG="v0.1.0"
+          TAG="v0.2.0"
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "$TAG already exists; leaving the original release intact."
           else

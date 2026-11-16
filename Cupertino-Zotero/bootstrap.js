@@ -7,6 +7,7 @@
  */
 
 var registeredSheets = [];
+var CupertinoReaderBackground;
 var windowListener = null;
 
 var ROW_ANIM_CLASS = "cupertino-row-in";
@@ -260,6 +261,16 @@ function startup({ id, version, resourceURI, rootURI = resourceURI.spec }, reaso
 	styleService.loadAndRegisterSheet(uri, styleService.AUTHOR_SHEET);
 	registeredSheets.push({ uri, type: styleService.AUTHOR_SHEET });
 
+  // Integrate native Zotero reader themes through an optional reader toolbar control.
+  // This module is original code; no Zotero PDF Background sources are reused.
+  try {
+    Services.scriptloader.loadSubScript(rootURI + "reader-background.js");
+    CupertinoReaderBackground?.start(id);
+  }
+  catch (error) {
+    Zotero.logError(error);
+  }
+
 	// Attach to current windows now and to future windows once loaded.
 	forEachWindow(attachToWindow);
 	windowListener = {
@@ -277,6 +288,8 @@ function startup({ id, version, resourceURI, rootURI = resourceURI.spec }, reaso
 }
 
 function shutdown({ id, version, resourceURI, rootURI = resourceURI.spec }, reason) {
+  try { CupertinoReaderBackground?.stop(); }
+  catch (error) { Zotero.logError(error); }
 	var styleService = getStyleService();
 	while (registeredSheets.length) {
 		var sheet = registeredSheets.pop();

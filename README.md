@@ -2,7 +2,26 @@
 
 An independent, English-language fork of [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero), designed for a calm reading experience.
 
-> **v0.1.0 preview:** This first milestone restores the permanent native Zotero menu bar and establishes a separate add-on identity. **PDF background color controls are not implemented yet.** The planned PDF feature will be developed and tested separately in v0.2.0.
+> **v0.2.0 prerelease:** Four soft PDF backgrounds are now available from a **PDF Background** selector in the reader toolbar. Colors use Zotero's native reader theme mechanism, not an overlay. Tested by static builds only, not yet visually in a real Zotero client.
+
+## Choose a PDF background
+
+1. Install the v0.2.0 XPI from the GitHub Release. Disable conflicting full-UI theme add-ons.
+2. **Close and reopen your PDF tab** so the reader toolbar is rendered with the new control.
+3. Look for **PDF Background** in the reader toolbar and select **Soft Cream**, **Soft Blue**, **Soft Sage**, **Soft Paper**, or **Original**.
+4. Alternatively, open the native **Appearance (Aa)** panel at the upper-right of Zotero's PDF reader. Custom themes you selected are also available there.
+
+**Requires Zotero 8+ for native themes.** The Cupertino UI supports Zotero 7, but native reader color presets are not guaranteed there. Selecting a preset changes Zotero's own reader light- and dark-theme preferences; it does not edit or recolor PDF file bytes.
+
+| Name | Background | Foreground |
+| --- | --- | --- |
+| Soft Cream | `#F7F1E5` | `#252B30` |
+| Soft Blue | `#EDF4F8` | `#223648` |
+| Soft Sage | `#EEF3EA` | `#25392E` |
+| Soft Paper | `#FAFAF7` | `#252B30` |
+
+Themes are saved on selection through Zotero's synced reader themes, preserving previously existing themes. If you remove the extension, your native reader preference and any created custom themes remain until you change or delete them in Zotero's Appearance panel.
+
 
 ## Current features
 
@@ -14,18 +33,16 @@ An independent, English-language fork of [Cupertino for Zotero](https://github.c
 
 ## Install
 
-1. Download `cupertino-with-pdf-background-0.1.0.xpi` from [GitHub Releases](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases).
+1. Download `cupertino-with-pdf-background-0.2.0.xpi` from [GitHub Releases](https://github.com/vict0rg/cupertino-for-zotero-with-pdf-background/releases).
 2. In Zotero, select **Tools → Plugins → gear icon → Install Plugin From File**.
 3. Disable other full-interface themes (especially the original Cupertino and Pixel-Blue Workspace) during testing to avoid conflicting CSS rules.
 4. Check that the application menu remains accessible by mouse and keyboard.
 
-**Compatibility target:** Zotero 7–10. Zotero 11 beta is experimental and not yet tested in a real client.
+**Interface target:** Zotero 7–10. **Native PDF background presets:** Zotero 8–10. Zotero 11 beta is experimental and not yet tested in a real client.
 
-## Planned reader backgrounds (v0.2.0)
+## PDF theme implementation
 
-The next milestone will offer **Soft Cream** (`#F7F1E5`), **Soft Blue** (`#EDF4F8`), **Soft Sage** (`#EEF3EA`) and **Soft Paper** (`#FAFAF7`), with English labels, reversible controls and careful testing of PDF text contrast.
-
-Zotero's native reader color schemes will be preferred where supported. The older [Zotero PDF Background](https://github.com/q77190858/zotero-pdf-background) is referenced as functional inspiration only; **its code is not incorporated** without an explicit compatible license.
+The native reader Appearance panel supports custom reader colors, including scanned PDFs where possible. Cupertino adds a plainly labeled control using Zotero's `renderToolbar` extension event. The palette is original code using `readerCustomThemes`; it does **not** import or reproduce the original Zotero PDF Background implementation. See [CREDITS.md](CREDITS.md).
 
 ## Build from source
 
@@ -33,10 +50,11 @@ Requires Python 3 and Node.js (for syntax validation), with no Python third-part
 
 ```sh
 node --check Cupertino-Zotero/bootstrap.js
+node --check Cupertino-Zotero/reader-background.js
 python3 scripts/build.py
 ```
 
-The build produces an XPI and an `updates.json` manifest in `dist/`. The GitHub Actions workflow publishes a **pre-release** from the default branch for v0.1.0.
+The build produces an XPI and an `updates.json` manifest in `dist/`. The GitHub Actions workflow publishes a **pre-release** from the default branch for v0.2.0.
 
 ## Credits and licenses
 
