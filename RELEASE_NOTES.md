@@ -1,19 +1,11 @@
-# Cupertino Cream for Zotero v0.3.1
+# Cupertino Cream for Zotero v0.3.2 — Letter Paper
 
-**Linux titlebar opacity fix.**
+Lighter stationery paper and matched visual identity with [Cupertino Cream for Obsidian v0.1.1](https://github.com/vict0rg/obsidian-cupertino-cream).
 
-On some KDE and GTK-based Linux desktops, the titlebar and tabs appeared transparent, showing the desktop wallpaper behind Zotero's main menu and reducing readability. This release replaces the inherited transparent surfaces with a solid cream background in light mode and a dark-brown surface in dark mode.
+- Paper and Soft Cream PDF: `#FFF9EC`, less brown than before.
+- Sidebars: `#F4F0E4`, toolbar: `#F6EFDE`.
+- First-install Soft Cream default only when no prior reader preferences exist on Zotero 8+.
+- Previously saved unchanged Soft Cream presets migrate; user-customized colors remain intact.
+- **Original** restores the native background. Other colors, menus, metadata and Linux titlebar fixes are unchanged.
 
-The corrected regions are Zotero's native titlebar, menu strip and tab strip. Native window controls, menu interactions, and dragging behavior are retained.
-
-**No changes** to the reader's PDF background presets (Soft Cream, Soft Blue, Soft Sage, Soft Paper, Original), metadata pane geometry, item-tree motion, or add-on identity. The MIT source licensing and upstream credit documentation remain unchanged.
-
-## Install
-
-Download `cupertino-cream-for-zotero-0.3.1.xpi` and install using **Tools → Plugins → Install Plugin From File**. Restart Zotero after updating and disable other complete UI themes to avoid conflicting CSS.
-
-If the fix does not work in your Linux environment, please report Zotero version, KDE/GNOME/other desktop environment, X11 or Wayland, and a screenshot. The prior [v0.3.0](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/tag/v0.3.0) remains available for rollback.
-
-**Credits:** original Cupertino for Zotero by shenghuang-123 et al. (MIT); Notation by deathau (The Unlicense) as design inspiration; PDF Background projects as feature references without reused source. Details: [CREDITS.md](https://github.com/vict0rg/cupertino-cream-for-zotero/blob/main/CREDITS.md).
-
-**Companion theme:** [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream).
+Install the `.xpi` from this release. Close and reopen PDF tabs to view the refreshed background. All code source continues from Cupertino for Zotero under MIT; Typewriter, Shimmering Focus, Olivier's Theme, and Notation remain cited only as design references without copied code. See CREDITS.md.

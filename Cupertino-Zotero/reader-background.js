@@ -1,5 +1,5 @@
 /*
- * Cupertino for Zotero with PDF Background — original reader controls, v0.2.1.
+ * Cupertino for Zotero with PDF Background — original reader controls, v0.3.2.
  *
  * Uses Zotero's native reader themes, not an overlay on PDF text layers.
  * Inspired by the UI goal of Zotero PDF Background (azhar-rafiq fork);
@@ -13,7 +13,7 @@ var CupertinoReaderBackground = (() => {
   const CONTROL = "cupertino-reader-background-picker";
   const ADDON_CLASS = "cupertino-reader-background-control";
   const PRESETS = Object.freeze([
-    { id: "customCupertinoCream", label: "Soft Cream", background: "#F7F1E5", foreground: "#252B30" },
+    { id: "customCupertinoCream", label: "Soft Cream", background: "#FFF9EC", foreground: "#332E2B" },
     { id: "customCupertinoBlue", label: "Soft Blue", background: "#EDF4F8", foreground: "#223648" },
     { id: "customCupertinoSage", label: "Soft Sage", background: "#EEF3EA", foreground: "#25392E" },
     { id: "customCupertinoPaper", label: "Soft Paper", background: "#FAFAF7", foreground: "#252B30" }
@@ -33,6 +33,7 @@ var CupertinoReaderBackground = (() => {
       if (!Zotero.SyncedSettings?.set) {
         throw new Error("Native reader themes require a Zotero version with synced reader settings");
       }
+      if (id === "customCupertinoCream") await migrateLegacyCream();
       const themes = readStoredThemes();
       if (!themes.some(x => x.id === id)) {
         // Never replace or remove themes created by other extensions or by the user.
@@ -47,6 +48,38 @@ var CupertinoReaderBackground = (() => {
     const choice = id === "original" ? false : id;
     Zotero.Prefs.set("reader.lightTheme", choice);
     Zotero.Prefs.set("reader.darkTheme", choice);
+  }
+
+
+  const INITIAL_PREF = "extensions.cupertinoCream.initialReaderTheme";
+  // Upgrade only the unchanged legacy preset, never customized user colors.
+  async function migrateLegacyCream() {
+    if (!Zotero.SyncedSettings?.set) return false;
+    const themes = readStoredThemes();
+    const legacy = themes.find(t => t?.id === "customCupertinoCream");
+    if (!legacy ||
+        String(legacy.background).toUpperCase() !== "#F7F1E5" ||
+        String(legacy.foreground).toUpperCase() !== "#252B30") return false;
+    const preset = PRESETS.find(p => p.id === "customCupertinoCream");
+    await Zotero.SyncedSettings.set(Zotero.Libraries.userLibraryID, SETTING,
+      themes.map(t => t.id === preset.id
+        ? { ...t, background: preset.background, foreground: preset.foreground }
+        : t));
+    return true;
+  }
+
+  // Apply a cream default exactly once, and only to a fresh reader configuration.
+  async function initializeReaderTheme() {
+    if (Number.parseInt(String(Zotero.version || "0"), 10) < 8 ||
+        !Zotero.Prefs?.get || !Zotero.SyncedSettings?.set) return;
+    await migrateLegacyCream();
+    if (Zotero.Prefs.get(INITIAL_PREF)) return;
+    const light = Zotero.Prefs.get("reader.lightTheme");
+    const dark = Zotero.Prefs.get("reader.darkTheme");
+    if (!light && !dark && readStoredThemes().length === 0) {
+      await applyPreset("customCupertinoCream");
+    }
+    Zotero.Prefs.set(INITIAL_PREF, true);
   }
 
   function renderToolbar(event) {
@@ -122,6 +155,7 @@ var CupertinoReaderBackground = (() => {
     listener = renderToolbar;
     Zotero.Reader.registerEventListener("renderToolbar", listener, pluginID);
     installed = true;
+    Promise.resolve().then(initializeReaderTheme).catch(error => Zotero.logError(error));
   }
 
   function stop() {
@@ -141,5 +175,5 @@ var CupertinoReaderBackground = (() => {
     }
   }
 
-  return { start, stop, applyPreset, presets: PRESETS };
+  return { start, stop, applyPreset, migrateLegacyCream, initializeReaderTheme, presets: PRESETS };
 })();

@@ -41,3 +41,11 @@ Both repositories informed the desired user experience of choosing PDF backgroun
 Derivative additions include the reader presets, restored menus, navigation corrections, cream styling, packaging, tests and English documentation. The combined work is distributed under the MIT terms of its original Cupertino source, preserving upstream copyright. The long-lived extension ID remains unchanged so earlier versions can upgrade.
 
 See [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE). This description documents code provenance and intended license compliance; it is not a legal certification of external projects.
+
+## Additional visual references (v0.3.2; no source reused)
+
+- [Typewriter](https://github.com/crashmoney/obsidian-typewriter) — GPL-3.0. Light paper color as visual inspiration; no GPL CSS/fonts copied.
+- [Shimmering Focus](https://github.com/chrisgrieser/shimmering-focus) — MIT. Zebra tables inspired the separate Obsidian companion; no CSS copied.
+- [Olivier's Theme](https://github.com/OlivierPS/Olivier-s-Theme) — MIT. Typography and paper palette studied; no code copied.
+
+The fork remains MIT-licensed according to its Cupertino upstream source and preserved notice.

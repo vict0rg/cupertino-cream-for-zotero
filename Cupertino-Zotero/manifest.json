@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Cupertino Cream for Zotero",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Warm Cupertino-inspired interface, permanent Zotero menus, and soft native PDF background colors. Companion to Cupertino Cream for Obsidian.",
   "author": "Cupertino for Zotero contributors; vict0rg derivative",
   "icons": {

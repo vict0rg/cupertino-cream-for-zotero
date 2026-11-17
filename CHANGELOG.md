@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 — Letter Paper palette and matching PDF default
+
+- New `#FFF9EC` reading paper matches the Obsidian Cupertino Cream v0.1.1 background.
+- Less brown sidebars, lighter toolbars, matching Zotero native Soft Cream PDF background.
+- First-use Soft Cream default only when no prior user reader themes/preferences exist (Zotero 8+).
+- Migrates only the unmodified older Soft Cream preset; preserves customized themes.
+- Keeps opaque Linux titlebar, visible menus and metadata layout unchanged.
+
 ## 0.3.1 — Solid Linux titlebar and readable menus
 
 - Replaced inherited transparent menu/titlebar/tab backgrounds with opaque Cupertino Cream materials.

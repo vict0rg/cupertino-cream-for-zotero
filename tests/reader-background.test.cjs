@@ -57,7 +57,14 @@ async function main() {
   await select.onchange();
   assert.equal(prefs.get('reader.lightTheme'),'customCupertinoCream');
   assert.equal(prefs.get('reader.darkTheme'),'customCupertinoCream');
-  assert(themes.some(x=>x.id==='customCupertinoCream' && x.background==='#F7F1E5'));
+  assert(themes.some(x=>x.id==='customCupertinoCream' && x.background==='#FFF9EC'));
+  // Migrate old default values only; user-edited theme colors are untouched.
+  themes = [{id:'customCupertinoCream',label:'Soft Cream',background:'#F7F1E5',foreground:'#252B30'}];
+  assert.equal(await context.CupertinoReaderBackground.migrateLegacyCream(), true);
+  assert.equal(themes[0].background,'#FFF9EC');
+  themes = [{id:'customCupertinoCream',label:'Soft Cream',background:'#F0EEE0',foreground:'#222222'}];
+  assert.equal(await context.CupertinoReaderBackground.migrateLegacyCream(), false);
+  assert.equal(themes[0].background,'#F0EEE0');
   context.shutdown({id:'test-cupertino',rootURI:'resource://mock/',resourceURI:{spec:'resource://mock/'}}, 0);
   assert.equal(registered.size,0,'Hook must unregister on shutdown');
   console.log('Reader module registration, toolbar, theme preferences and metadata rail assertions passed');
