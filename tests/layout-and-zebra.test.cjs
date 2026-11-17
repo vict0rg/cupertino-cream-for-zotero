@@ -12,6 +12,6 @@ assert.match(css, /#zotero-context-pane-sidenav:not\(\.stacked\):not\(\[hidden\]
 assert.match(css, /#zotero-items-tree \.row:not\(\.selected\):nth-child\(even\)/);
 assert.match(css, /#zotero-items-tree \.row:not\(\.selected\):hover/);
 assert.match(css, /#zotero-items-tree \.row:not\(\.selected\):nth-child\(odd\)/);
-assert.match(css, /#zotero-items-tree \.row\.selected/);
+assert.match(css, /\.virtualized-table \.row\.selected/);
 assert.ok(!css.includes('#menubar-items {\n\tmax-width: 14px'));
 console.log('Zotero layout flex reservation, zebra rows and ID stability: PASS');
