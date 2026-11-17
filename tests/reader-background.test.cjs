@@ -52,12 +52,12 @@ async function main() {
   assert(group.children[0].textContent==='PDF Background');
   const select=group.children[1];
   assert.deepEqual(select.children.map(x=>x.textContent),
-    ['Original','Soft Cream','Soft Blue','Soft Sage','Soft Paper']);
-  select.value='customCupertinoCream';
+    ['Original','Soft Paper','Soft Cream','Soft Blue','Soft Sage']);
+  select.value='customCupertinoPaper';
   await select.onchange();
-  assert.equal(prefs.get('reader.lightTheme'),'customCupertinoCream');
-  assert.equal(prefs.get('reader.darkTheme'),'customCupertinoCream');
-  assert(themes.some(x=>x.id==='customCupertinoCream' && x.background==='#FFF9EC'));
+  assert.equal(prefs.get('reader.lightTheme'),'customCupertinoPaper');
+  assert.equal(prefs.get('reader.darkTheme'),'customCupertinoPaper');
+  assert(themes.some(x=>x.id==='customCupertinoPaper' && x.background==='#FAFAF7'));
   // Migrate old default values only; user-edited theme colors are untouched.
   themes = [{id:'customCupertinoCream',label:'Soft Cream',background:'#F7F1E5',foreground:'#252B30'}];
   assert.equal(await context.CupertinoReaderBackground.migrateLegacyCream(), true);

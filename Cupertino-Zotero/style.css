@@ -748,62 +748,50 @@ collapsible-section > .head:hover {
 	}
 }
 
-/* CUPERTINO CREAM v0.3.2 — lighter ivory letter-paper palette
-   Coordinated with Obsidian Cupertino Cream v0.1.1. */
-@media (prefers-color-scheme: light) {
+/* ZOTERO CUPERTINO SOFT THEME v0.4.0 — Soft Paper + gray Cupertino palette
+ * Source: Cupertino for Zotero (MIT). All notices preserved in LICENSE.
+ * Companion: github.com/vict0rg/obsidian-cupertino-soft-theme */
+@media (prefers-color-scheme:light) {
  :root {
-  --color-toolbar: #F6EFDE !important;
-  --color-tabbar: #F6EFDE !important;
-  --color-sidepane: #F4F0E4 !important;
-  --color-background: #FFF9EC !important;
-  --color-button: #FFF9EC !important;
-  --color-control: #FFF9EC !important;
-  --color-menu: #FFF9EC !important;
-  --color-menu-opaque: #FFF9EC !important;
-  --color-border: rgba(106,84,54,.16) !important;
-  --color-border50: rgba(106,84,54,.09) !important;
-  --color-stripe: rgba(106,84,54,.024) !important;
-  --color-stripe-on-background: #FCF5E7 !important;
-  --color-scrollbar: rgba(94,74,49,.22) !important;
-  --color-scrollbar-hover: rgba(94,74,49,.39) !important;
-  --color-quinary-on-background: #F8F1E3 !important;
-  --color-quarternary-on-background: #EFE6D4 !important;
-  --color-quinary-on-sidepane: #F0EBDF !important;
-  --color-quarternary-on-sidepane: #E9DFCF !important;
-  --cupertino-row-selected-bg: rgba(255,59,48,.09) !important;
-  --cupertino-row-selected-text: #332E2B !important;
-  --cupertino-row-selected-title: #A63D36 !important;
-  --accent-red: #FF3B30 !important;
-  --color-accent: #FF3B30 !important;
-  --color-accent-text: #FFFFFF !important;
-  --accent-blue: #FF3B30 !important;
-  --accent-azure: #DF7169 !important;
+  --color-toolbar:#E8EAEC !important;--color-tabbar:#E8EAEC !important;
+  --color-sidepane:#F1F2F3 !important;--color-background:#FAFAF7 !important;
+  --color-button:#FAFAF7 !important;--color-control:#FAFAF7 !important;
+  --color-menu:#FAFAF7 !important;--color-menu-opaque:#FAFAF7 !important;
+  --color-border:#DDE0E3 !important;--color-border50:#E6E8EA !important;
+  --color-stripe:rgba(50,60,70,.022) !important;
+  --color-stripe-on-background:#F7F8F7 !important;
+  --color-quinary-on-background:#F4F5F5 !important;
+  --color-quarternary-on-background:#EDEFF1 !important;
+  --color-quinary-on-sidepane:#EBEDEF !important;
+  --color-quarternary-on-sidepane:#E1E5E7 !important;
+  --color-scrollbar:rgba(79,89,99,.22) !important;
+  --color-scrollbar-hover:rgba(79,89,99,.38) !important;
+  --cupertino-row-selected-bg:#E7EAEC !important;
+  --cupertino-row-selected-text:#31353A !important;
+  --cupertino-row-selected-title:#A9565E !important;
+  --accent-red:#C97073 !important;--accent-azure:#C97073 !important;
+  --color-accent:#C97073 !important;--color-accent-text:#FFFFFF !important;
+  --accent-blue:#C97073 !important;
  }
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark) {
  :root {
-  --color-toolbar: #39362D !important;
-  --color-tabbar: #39362D !important;
-  --color-sidepane: #302F28 !important;
-  --color-background: #272520 !important;
-  --color-button: #39362D !important;
-  --color-menu: #302F28 !important;
-  --color-menu-opaque: #302F28 !important;
-  --color-border: rgba(243,233,217,.16) !important;
-  --color-border50: rgba(243,233,217,.09) !important;
-  --color-stripe-on-background: #2C2923 !important;
-  --color-quinary-on-background: #302C26 !important;
-  --color-quarternary-on-background: #423A30 !important;
-  --color-quinary-on-sidepane: #39362D !important;
-  --color-quarternary-on-sidepane: #51483D !important;
-  --cupertino-row-selected-bg: rgba(255,129,121,.17) !important;
-  --cupertino-row-selected-text: #F3E9D9 !important;
-  --cupertino-row-selected-title: #FFAAA0 !important;
-  --accent-red: #FF8179 !important;
-  --color-accent: #FF8179 !important;
-  --color-accent-text: #272520 !important;
-  --accent-blue: #FF8179 !important;
-  --accent-azure: #EF958C !important;
+  --color-toolbar:#36393C !important;--color-tabbar:#36393C !important;
+  --color-sidepane:#2E3033 !important;--color-background:#26282A !important;
+  --color-button:#36393C !important;--color-menu:#2E3033 !important;
+  --color-menu-opaque:#2E3033 !important;
+  --color-border:#474B50 !important;--color-border50:#393D40 !important;
+  --color-stripe-on-background:#292B2D !important;
+  --color-quinary-on-background:#303336 !important;
+  --color-quarternary-on-background:#393D40 !important;
+  --color-quinary-on-sidepane:#373A3D !important;
+  --color-quarternary-on-sidepane:#414549 !important;
+  --cupertino-row-selected-bg:#393D40 !important;
+  --cupertino-row-selected-text:#EBECE9 !important;
+  --cupertino-row-selected-title:#DFA1A5 !important;
+  --accent-red:#DFA1A5 !important;--accent-azure:#DFA1A5 !important;
+  --color-accent:#DFA1A5 !important;--color-accent-text:#26282A !important;
+  --accent-blue:#DFA1A5 !important;
  }
 }
-/* Preserves the opaque Linux titlebar and permanent application menu. */
+/* Keep opaque menu/titlebar surfaces and visible File/Edit/View menus. */

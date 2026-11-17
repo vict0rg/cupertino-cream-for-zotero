@@ -1,5 +1,5 @@
 /*
- * Cupertino for Zotero with PDF Background — original reader controls, v0.3.2.
+ * Cupertino for Zotero with PDF Background — original reader controls, v0.4.0.
  *
  * Uses Zotero's native reader themes, not an overlay on PDF text layers.
  * Inspired by the UI goal of Zotero PDF Background (azhar-rafiq fork);
@@ -13,10 +13,10 @@ var CupertinoReaderBackground = (() => {
   const CONTROL = "cupertino-reader-background-picker";
   const ADDON_CLASS = "cupertino-reader-background-control";
   const PRESETS = Object.freeze([
+    { id: "customCupertinoPaper", label: "Soft Paper", background: "#FAFAF7", foreground: "#252B30" },
     { id: "customCupertinoCream", label: "Soft Cream", background: "#FFF9EC", foreground: "#332E2B" },
     { id: "customCupertinoBlue", label: "Soft Blue", background: "#EDF4F8", foreground: "#223648" },
-    { id: "customCupertinoSage", label: "Soft Sage", background: "#EEF3EA", foreground: "#25392E" },
-    { id: "customCupertinoPaper", label: "Soft Paper", background: "#FAFAF7", foreground: "#252B30" }
+    { id: "customCupertinoSage", label: "Soft Sage", background: "#EEF3EA", foreground: "#25392E" }
   ]);
   let installed = false;
   let listener = null;
@@ -51,6 +51,7 @@ var CupertinoReaderBackground = (() => {
   }
 
 
+  // Preserve the preference key from earlier releases, so existing user choices remain.
   const INITIAL_PREF = "extensions.cupertinoCream.initialReaderTheme";
   // Upgrade only the unchanged legacy preset, never customized user colors.
   async function migrateLegacyCream() {
@@ -77,7 +78,7 @@ var CupertinoReaderBackground = (() => {
     const light = Zotero.Prefs.get("reader.lightTheme");
     const dark = Zotero.Prefs.get("reader.darkTheme");
     if (!light && !dark && readStoredThemes().length === 0) {
-      await applyPreset("customCupertinoCream");
+      await applyPreset("customCupertinoPaper");
     }
     Zotero.Prefs.set(INITIAL_PREF, true);
   }

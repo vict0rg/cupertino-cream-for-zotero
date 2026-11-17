@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Cupertino Cream for Zotero",
-  "version": "0.3.2",
-  "description": "Warm Cupertino-inspired interface, permanent Zotero menus, and soft native PDF background colors. Companion to Cupertino Cream for Obsidian.",
+  "name": "Zotero Cupertino Soft Theme",
+  "version": "0.4.0",
+  "description": "Soft Paper PDF reading and a neutral-gray Cupertino interface for Zotero, with permanent menus and accessible metadata controls.",
   "author": "Cupertino for Zotero contributors; vict0rg derivative",
   "icons": {
     "48": "icons/icon-48.png",
@@ -11,10 +11,10 @@
   "applications": {
     "zotero": {
       "id": "cupertino-with-pdf-background@vict0rg.github.io",
-      "update_url": "https://github.com/vict0rg/cupertino-cream-for-zotero/releases/latest/download/updates.json",
+      "update_url": "https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/latest/download/updates.json",
       "strict_min_version": "7.0",
       "strict_max_version": "10.0.*"
     }
   },
-  "homepage_url": "https://github.com/vict0rg/cupertino-cream-for-zotero"
+  "homepage_url": "https://github.com/vict0rg/zotero-cupertino-soft-theme"
 }
