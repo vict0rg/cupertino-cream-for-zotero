@@ -1,4 +1,4 @@
-# Submitting Zotero Cupertino Soft Theme to add-on directories
+# Submitting Cupertino Zotero Soft Theme to add-on directories
 
 ## Zotero Plugins Atlas
 
@@ -8,10 +8,10 @@ The plugin is **already listed** as Cupertino Cream for Zotero. An [existing-lis
 
 The [Add-on Market for Zotero](https://github.com/syt2/zotero-addons) uses the separate [syt2/zotero-addons-scraper](https://github.com/syt2/zotero-addons-scraper) index.
 
-To request inclusion, follow the scraper repository's contributor instructions and propose a new add-on entry for `vict0rg/zotero-cupertino-soft-theme`, including appropriate interface/reader categories and the release URL. If an entry for an earlier repository name already exists, request an update rather than a duplicate.
+To request inclusion, follow the scraper repository's contributor instructions and propose a new add-on entry for `vict0rg/cupertino-zotero-soft-theme`, including appropriate interface/reader categories and the release URL. If an entry for an earlier repository name already exists, request an update rather than a duplicate.
 
-**Repository:** https://github.com/vict0rg/zotero-cupertino-soft-theme
-**Latest release:** https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/tag/v0.4.0
-**Companion Obsidian theme:** https://github.com/vict0rg/obsidian-cupertino-soft-theme
+**Repository:** https://github.com/vict0rg/cupertino-zotero-soft-theme
+**Latest release:** https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/tag/v0.5.0
+**Companion Obsidian theme:** https://github.com/vict0rg/cupertino-obsidian-soft-theme
 
 Inclusion is subject to the maintainers' review. This project is MIT-licensed as a derivative of Cupertino for Zotero, with the source and design-only references documented in CREDITS.md.

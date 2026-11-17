@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Zotero Cupertino Soft Theme",
-  "version": "0.4.1",
-  "description": "Soft Paper PDF reading and a neutral-gray Cupertino interface for Zotero, with permanent menus and accessible metadata controls.",
+  "name": "Cupertino Zotero Soft Theme",
+  "version": "0.5.0",
+  "description": "Obsidian-default gray UI with muted coral selections and Soft Paper PDF reading in Zotero; native menus and metadata controls remain visible.",
   "author": "Cupertino for Zotero contributors; vict0rg derivative",
   "icons": {
     "48": "icons/icon-48.png",
@@ -11,10 +11,10 @@
   "applications": {
     "zotero": {
       "id": "cupertino-with-pdf-background@vict0rg.github.io",
-      "update_url": "https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/latest/download/updates.json",
+      "update_url": "https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/latest/download/updates.json",
       "strict_min_version": "7.0",
       "strict_max_version": "10.0.*"
     }
   },
-  "homepage_url": "https://github.com/vict0rg/zotero-cupertino-soft-theme"
+  "homepage_url": "https://github.com/vict0rg/cupertino-zotero-soft-theme"
 }

@@ -1,10 +1,10 @@
-# Zotero Cupertino Soft Theme — Windows build.
+# Cupertino Zotero Soft Theme — Windows build.
 # Concatenate the reader module into bootstrap.js, exactly as scripts/build.py does.
 Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
 $root = $PSScriptRoot
 $src = Join-Path $root "Cupertino-Zotero"
 $meta = Get-Content (Join-Path $src "manifest.json") -Raw | ConvertFrom-Json
-$xpi = Join-Path $root ("zotero-cupertino-soft-theme-" + $meta.version + ".xpi")
+$xpi = Join-Path $root ("cupertino-zotero-soft-theme-" + $meta.version + ".xpi")
 if (Test-Path $xpi) { Remove-Item $xpi -Force }
 $zip = [System.IO.Compression.ZipFile]::Open($xpi, [System.IO.Compression.ZipArchiveMode]::Create)
 try {

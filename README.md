@@ -1,23 +1,29 @@
-# Zotero Cupertino Soft Theme
+# Cupertino Zotero Soft Theme
 
 **Soft Paper PDFs, calm gray Cupertino panels and gently colored details for focused reading in Zotero.**
 
-[**Latest XPI**](https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/latest) · [Releases](https://github.com/vict0rg/zotero-cupertino-soft-theme/releases) · [Credits](CREDITS.md) · [Changelog](CHANGELOG.md)
+[**Latest XPI**](https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/latest) · [Releases](https://github.com/vict0rg/cupertino-zotero-soft-theme/releases) · [Credits](CREDITS.md) · [Changelog](CHANGELOG.md)
 
-**Recommended companion:** [Obsidian Cupertino Soft Theme](https://github.com/vict0rg/obsidian-cupertino-soft-theme) — matches the PDF's Soft Paper color in the Obsidian editor. Use both for a consistent research and writing workspace.
+**Recommended companion:** [Cupertino Obsidian Soft Theme](https://github.com/vict0rg/cupertino-obsidian-soft-theme) — matches the PDF's Soft Paper color in the Obsidian editor. Use both for a consistent research and writing workspace.
 
 ## Highlights
 
 - **Soft Paper by default on a fresh reader configuration:** `#FAFAF7`, close to white but less stark.
-- **Cupertino gray interface:** `#F1F2F3` navigation sidebars, `#E8EAEC` tabs and menu strip, `#DDE0E3` dividers.
+- **Obsidian-default gray interface:** `#F3F3F3` navigation sidebars, `#EEEEEE` tabs and menu strip, `#DDDEDE` dividers; bibliography list remains on Soft Paper with quiet zebra rows.
 - **Always-visible Zotero menu:** File, Edit, View, Tools and Help stay usable.
-- **Metadata panel (v0.4.1):** the side-navigation rail reserves its own 40px flex column; metadata wraps in the remaining space instead of passing under its icons.
+- **Metadata panel (v0.5.0):** the side-navigation rail reserves its own 40px flex column; metadata wraps in the remaining space instead of passing under its icons.
 - **Article list:** alternating soft gray (`#F7F8F9` / `#ECEFF1`) rows, muted selection and a slightly stronger hover shade.
 - **Native PDF Background selector:** Soft Paper, Soft Cream, Soft Blue, Soft Sage or Original — no changes to PDF file data, annotations or text layers.
 - **Accessible palette:** dark-on-light text, small muted coral selection indicators, dark mode and reduced-motion support.
 - **Linux window compatibility:** opaque titlebar and menus avoid showing the desktop wallpaper through the window.
 
-## v0.4.1 layout correction
+## v0.5.0 coordinated visual design
+
+The **Zotero window now follows the default Obsidian aesthetic**, with neutral grays and native menus rather than opaque cream-colored navigation. Soft Paper (`#FAFAF7`) is the shared reading surface. Pale coral (`#F5E5E5`) identifies selected collections and articles with a restrained edge stripe (`#D78381`) that remains visible but less saturated when the window loses focus. Central list rows alternate Soft Paper and near-gray (`#F3F4F2`).
+
+The coral draws on the source [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero), whose original red (`#FF3B30`) and warm coral (`#FF6B61`) are reduced in saturation. Bibliographic metadata and ranking/status color semantics are otherwise preserved.
+
+## v0.5.0 layout correction
 
 This maintenance release responds to a regression reported with the right-side icon navigation overlapping bibliographic metadata. The standard (non-stacked) details pane now reserves a fixed 40px flex slot for that navigation. Stacked mode is left to Zotero's native layout. The article/ebook list uses pale-gray alternating row backgrounds; **PDF Soft Paper (#FAFAF7)** and reader presets are unchanged.
 
@@ -29,15 +35,17 @@ The fix is covered by structural regression tests but should be confirmed in Zot
 | --- | --- |
 | Default PDF Soft Paper | `#FAFAF7` |
 | Main background | `#FAFAF7` |
-| Navigation panes | `#F1F2F3` |
-| Toolbars / tabs | `#E8EAEC` |
-| Borders | `#DDE0E3` |
+| Navigation panes | `#F3F3F3` |
+| Toolbars / tabs | `#EEEEEE` |
+| Borders | `#DDDEDE` |
 | Body text | `#31353A` |
-| Soft coral accents | `#C97073` |
+| Soft coral accents | `#D78381` |
+| Selection background | `#F5E5E5` |
+| Alternating table/list rows | `#F3F4F2` |
 
 ## Install or upgrade
 
-1. Download **[zotero-cupertino-soft-theme-0.4.1.xpi](https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/download/v0.4.1/zotero-cupertino-soft-theme-0.4.1.xpi)**.
+1. Download **[cupertino-zotero-soft-theme-0.5.0.xpi](https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/download/v0.5.0/cupertino-zotero-soft-theme-0.5.0.xpi)**.
 2. Open Zotero → **Tools → Plugins → gear icon → Install Plugin From File**.
 3. Select the XPI, restart Zotero if needed, and reopen PDF tabs.
 4. Disable competing *full interface* theme plugins if you see unwanted visual overlap.
@@ -78,7 +86,7 @@ node tests/opaque-titlebar.test.cjs
 python3 scripts/build.py
 ```
 
-The build produces `dist/zotero-cupertino-soft-theme-0.4.1.xpi` and `dist/updates.json`. Automatic update links point to this renamed repository.
+The build produces `dist/cupertino-zotero-soft-theme-0.5.0.xpi` and `dist/updates.json`. Automatic update links point to this renamed repository.
 
 ## Plugin directories
 

@@ -748,55 +748,74 @@ collapsible-section > .head:hover {
 	}
 }
 
-/* ZOTERO CUPERTINO SOFT THEME v0.4.0 — Soft Paper + gray Cupertino palette
- * Source: Cupertino for Zotero (MIT). All notices preserved in LICENSE.
- * Companion: github.com/vict0rg/obsidian-cupertino-soft-theme */
+/* CUPERTINO ZOTERO SOFT THEME v0.5.0 — Obsidian-default layout aesthetic
+ * MIT historical source: shenghuang-123/cupertino-for-zotero
+ * Companion: vict0rg/cupertino-obsidian-soft-theme
+ * Soft Paper for content; native-like gray chrome; muted Cupertino coral.
+ * Original Cupertino red #FF3B30 / coral #FF6B61 inspire the accents,
+ * deliberately muted to improve long-form reading contrast. */
 @media (prefers-color-scheme:light) {
  :root {
-  --color-toolbar:#E8EAEC !important;--color-tabbar:#E8EAEC !important;
-  --color-sidepane:#F1F2F3 !important;--color-background:#FAFAF7 !important;
-  --color-button:#FAFAF7 !important;--color-control:#FAFAF7 !important;
-  --color-menu:#FAFAF7 !important;--color-menu-opaque:#FAFAF7 !important;
-  --color-border:#DDE0E3 !important;--color-border50:#E6E8EA !important;
-  --color-stripe:rgba(50,60,70,.022) !important;
-  --color-stripe-on-background:#F7F8F7 !important;
-  --color-quinary-on-background:#F4F5F5 !important;
-  --color-quarternary-on-background:#EDEFF1 !important;
-  --color-quinary-on-sidepane:#EBEDEF !important;
-  --color-quarternary-on-sidepane:#E1E5E7 !important;
-  --color-scrollbar:rgba(79,89,99,.22) !important;
-  --color-scrollbar-hover:rgba(79,89,99,.38) !important;
-  --cupertino-row-selected-bg:#E7EAEC !important;
-  --cupertino-row-selected-text:#31353A !important;
-  --cupertino-row-selected-title:#A9565E !important;
-  --accent-red:#C97073 !important;--accent-azure:#C97073 !important;
-  --color-accent:#C97073 !important;--color-accent-text:#FFFFFF !important;
-  --accent-blue:#C97073 !important;
+  --color-toolbar: #EEEEEE !important;
+  --color-tabbar: #EEEEEE !important;
+  --color-sidepane: #F3F3F3 !important;
+  --color-background: #FAFAF7 !important;
+  --color-button: #FAFAF7 !important;
+  --color-control: #FAFAF7 !important;
+  --color-menu: #F3F3F3 !important;
+  --color-menu-opaque: #F3F3F3 !important;
+  --color-border: #DDDEDE !important;
+  --color-border50: #E5E6E6 !important;
+  --color-stripe: rgba(55,60,66,.025) !important;
+  --color-stripe-on-background: #F6F6F5 !important;
+  --color-quinary-on-background: #F4F4F3 !important;
+  --color-quarternary-on-background: #EBEDEC !important;
+  --color-quinary-on-sidepane: #EEEEED !important;
+  --color-quarternary-on-sidepane: #E6E8E7 !important;
+  --color-scrollbar: rgba(79,87,93,.22) !important;
+  --color-scrollbar-hover: rgba(79,87,93,.37) !important;
+  --cupertino-row-selected-bg: #F5E5E5 !important;
+  --cupertino-row-selected-text: #31353A !important;
+  --cupertino-row-selected-title: #A95157 !important;
+  --accent-red: #D78381 !important;
+  --accent-blue: #D78381 !important;
+  --accent-azure: #D78381 !important;
+  --accent-blue10: rgba(215,131,129,.10) !important;
+  --accent-blue30: rgba(215,131,129,.30) !important;
+  --accent-blue50: rgba(215,131,129,.50) !important;
+  --color-accent: #D78381 !important;
+  --color-accent-text: #FFFFFF !important;
  }
 }
 @media (prefers-color-scheme:dark) {
  :root {
-  --color-toolbar:#36393C !important;--color-tabbar:#36393C !important;
-  --color-sidepane:#2E3033 !important;--color-background:#26282A !important;
-  --color-button:#36393C !important;--color-menu:#2E3033 !important;
-  --color-menu-opaque:#2E3033 !important;
-  --color-border:#474B50 !important;--color-border50:#393D40 !important;
-  --color-stripe-on-background:#292B2D !important;
-  --color-quinary-on-background:#303336 !important;
-  --color-quarternary-on-background:#393D40 !important;
-  --color-quinary-on-sidepane:#373A3D !important;
-  --color-quarternary-on-sidepane:#414549 !important;
-  --cupertino-row-selected-bg:#393D40 !important;
-  --cupertino-row-selected-text:#EBECE9 !important;
-  --cupertino-row-selected-title:#DFA1A5 !important;
-  --accent-red:#DFA1A5 !important;--accent-azure:#DFA1A5 !important;
-  --color-accent:#DFA1A5 !important;--color-accent-text:#26282A !important;
-  --accent-blue:#DFA1A5 !important;
+  --color-toolbar: #36393C !important;
+  --color-tabbar: #36393C !important;
+  --color-sidepane: #2E3033 !important;
+  --color-background: #26282A !important;
+  --color-button: #36393C !important;
+  --color-menu: #2E3033 !important;
+  --color-menu-opaque: #2E3033 !important;
+  --color-border: #474B50 !important;
+  --color-border50: #393D40 !important;
+  --color-stripe-on-background: #292B2D !important;
+  --color-quinary-on-background: #303336 !important;
+  --color-quarternary-on-background: #393D40 !important;
+  --color-quinary-on-sidepane: #373A3D !important;
+  --color-quarternary-on-sidepane: #414549 !important;
+  --cupertino-row-selected-bg: #513E42 !important;
+  --cupertino-row-selected-text: #EBECE9 !important;
+  --cupertino-row-selected-title: #DFA1A5 !important;
+  --accent-red: #DFA1A5 !important;
+  --accent-blue: #DFA1A5 !important;
+  --accent-azure: #DFA1A5 !important;
+  --color-accent: #C77D84 !important;
+  --color-accent-text: #26282A !important;
  }
 }
 /* Keep opaque menu/titlebar surfaces and visible File/Edit/View menus. */
 
-/* CUPERTINO SOFT v0.4.1 — persistent metadata navigation layout
+/* CUPERTINO SOFT v0.5.0 — persistent metadata navigation layout
  * Under Zotero 7–10, the item-pane content and sidenav are sibling
  * elements. Native sidenav needs its own real flex slot; painting it as a
  * hover overlay, or allowing its sibling to consume 100% of the width,
@@ -857,16 +876,16 @@ item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-si
 @media (prefers-color-scheme: light) {
   #zotero-items-pane-container,
   #zotero-items-tree {
-    background-color: #F7F8F9 !important;
+    background-color: #FAFAF7 !important;
   }
   #zotero-items-tree .row:not(.selected):nth-child(odd) {
-    background-color: #F7F8F9 !important;
+    background-color: #FAFAF7 !important;
   }
   #zotero-items-tree .row:not(.selected):nth-child(even) {
-    background-color: #ECEFF1 !important;
+    background-color: #F3F4F2 !important;
   }
   #zotero-items-tree .row:not(.selected):hover {
-    background-color: #E3E8EC !important;
+    background-color: #ECEDEE !important;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -882,5 +901,68 @@ item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-si
   }
   #zotero-items-tree .row:not(.selected):hover {
     background-color: #3D4246 !important;
+  }
+}
+
+/* CUPERTINO ZOTERO SOFT v0.5.0 — quiet navigation emphasis.
+ * Keep the actual document list and PDF Paper surfaces coordinated with the
+ * default Obsidian appearance while retaining Zotero's native controls. */
+@media (prefers-color-scheme: light) {
+  /* Pale coral selection + a discreet visual marker, never solid red fill. */
+  .virtualized-table .row.selected,
+  #zotero-collections-tree .row.selected {
+    background-color: #F5E5E5 !important;
+    color: #31353A !important;
+    box-shadow: inset 3px 0 0 #D78381 !important;
+  }
+  .virtualized-table .row.selected .cell.primary,
+  #zotero-collections-tree .row.selected .cell.primary {
+    color: #A95157 !important;
+  }
+  :root:-moz-window-inactive .virtualized-table .row.selected,
+  :root:-moz-window-inactive #zotero-collections-tree .row.selected {
+    background-color: #F6ECEC !important;
+    box-shadow: inset 3px 0 0 #DBA2A0 !important;
+  }
+  /* The selector changes selection/background color, not the PDF canvas. */
+  #zotero-items-pane-container,
+  #zotero-items-tree {
+    background-color: #FAFAF7 !important;
+  }
+  #zotero-items-tree .row:not(.selected):nth-child(odd) {
+    background-color: #FAFAF7 !important;
+  }
+  #zotero-items-tree .row:not(.selected):nth-child(even) {
+    background-color: #F3F4F2 !important;
+  }
+  #zotero-items-tree .row:not(.selected):hover {
+    background-color: #ECEDEE !important;
+  }
+  /* Gray information panel as in Obsidian's own sidebar. The icon rail
+     remains an independently reserved flex sibling from the v0.4.1 fix. */
+  #zotero-item-pane,
+  #zotero-context-pane,
+  #zotero-collections-pane {
+    background-color: #F3F3F3 !important;
+  }
+  item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-sidenav,
+  #zotero-context-pane-sidenav:not(.stacked):not([hidden]) {
+    background-color: #EEEEEE !important;
+    border-inline-start: 1px solid #DDDEDE !important;
+  }
+  item-pane-sidenav .btn:hover {
+    background-color: #F5E5E5 !important;
+  }
+  /* Respect the user's semantic classification colors and Zotero icons. */
+}
+@media (prefers-color-scheme: dark) {
+  .virtualized-table .row.selected,
+  #zotero-collections-tree .row.selected {
+    background-color: #513E42 !important;
+    box-shadow: inset 3px 0 0 #DFA1A5 !important;
+  }
+  .virtualized-table .row.selected .cell.primary,
+  #zotero-collections-tree .row.selected .cell.primary {
+    color: #E7B1B3 !important;
   }
 }

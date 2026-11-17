@@ -1,0 +1,16 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const css = fs.readFileSync('Cupertino-Zotero/style.css','utf8');
+const meta = JSON.parse(fs.readFileSync('Cupertino-Zotero/manifest.json','utf8'));
+assert.equal(meta.name,'Cupertino Zotero Soft Theme');
+assert.equal(meta.version,'0.5.0');
+assert.equal(meta.homepage_url,'https://github.com/vict0rg/cupertino-zotero-soft-theme');
+assert.equal(meta.applications.zotero.id,'cupertino-with-pdf-background@vict0rg.github.io');
+for (const color of ['#FAFAF7','#F3F3F3','#EEEEEE','#D78381','#F5E5E5','#F3F4F2']) assert.ok(css.includes(color),color);
+assert.match(css,/--cupertino-row-selected-bg:\s*#F5E5E5 !important/);
+assert.match(css,/#zotero-items-tree \.row:not\(\.selected\):nth-child\(even\)/);
+assert.match(css,/:root:-moz-window-inactive \.virtualized-table \.row\.selected/);
+assert.match(css,/box-shadow:\s*inset 3px 0 0 #D78381/);
+assert.match(css,/#zotero-view-item-sidenav/);
+assert.ok(css.includes('Native Zotero application menubar is permanently visible'));
+console.log('Cupertino Soft palette, inactive selection, stable ID and menu: PASS');

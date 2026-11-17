@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const assert = require('node:assert/strict');
 const css = fs.readFileSync('Cupertino-Zotero/style.css','utf8');
 const manifest = JSON.parse(fs.readFileSync('Cupertino-Zotero/manifest.json','utf8'));
-assert.equal(manifest.version, '0.4.1');
+assert.equal(manifest.version, '0.5.0');
 assert.equal(manifest.applications.zotero.id, 'cupertino-with-pdf-background@vict0rg.github.io');
 // Navigation must be a real flex sibling, not an overlay.
 assert.match(css, /item-pane#zotero-item-pane:not\(\.stacked\):not\(\[collapsed\]\)/);

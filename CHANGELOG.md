@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 — Cupertino Zotero Soft Theme
+
+- Final cross-application palette based on default Obsidian layout, Soft Paper page and muted coral selections.
+- Accent #D78381, selected row #F5E5E5, gray panels #F3F3F3, alternate list rows #F3F4F2.
+- Selection retains visibility in inactive windows; preserved metadata rail fixes and PDF reader choice.
+- Renamed project links, update feed, build filenames and public documentation.
+- Maintained stable Zotero add-on ID and the credits/license history.
+
+
+
 ## 0.4.1 — Metadata rail and gray zebra-striped list
 
 - Explicitly reserve a 40px flex sibling for the right-hand sidenav instead of letting it cover the metadata.

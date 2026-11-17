@@ -15,7 +15,7 @@ const browser = css.match(/#browser\s*\{([^}]+)\}/);
 assert.ok(browser, 'Browser shell must have an opaque background');
 assert.match(browser[1],/background-color:\s*var\(--color-toolbar[^;]*!important/);
 const manifest = JSON.parse(fs.readFileSync('Cupertino-Zotero/manifest.json','utf8'));
-assert.equal(manifest.version,'0.4.1');
+assert.equal(manifest.version,'0.5.0');
 assert.equal(manifest.applications.zotero.id,'cupertino-with-pdf-background@vict0rg.github.io');
 assert.match(css,/Native Zotero application menubar is permanently visible/);
 console.log('Opaque menu/titlebar/tabs and unchanged add-on ID: PASS');

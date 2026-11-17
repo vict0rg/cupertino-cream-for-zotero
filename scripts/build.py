@@ -13,12 +13,12 @@ MANIFEST = json.loads((SRC / "manifest.json").read_text(encoding="utf-8"))
 VERSION = MANIFEST["version"]
 ADDON = MANIFEST["applications"]["zotero"]
 
-assert MANIFEST["name"] == "Zotero Cupertino Soft Theme"
+assert MANIFEST["name"] == "Cupertino Zotero Soft Theme"
 assert ADDON["id"] == "cupertino-with-pdf-background@vict0rg.github.io"
 assert ADDON["strict_min_version"] == "7.0"
 assert ADDON["strict_max_version"] == "10.0.*"
 assert ADDON["update_url"].startswith("https://github.com/vict0rg/")
-assert VERSION == "0.4.1", "Review version and release notes before a new release"
+assert VERSION == "0.5.0", "Review version and release notes before a new release"
 STYLE = (SRC / "style.css").read_text(encoding="utf-8")
 assert "#menubar-items {\n\tmax-width: 14px" not in STYLE, "Native menu must remain visible"
 assert "Native Zotero application menubar is permanently visible" in STYLE
@@ -36,9 +36,13 @@ assert "reader.lightTheme" in READER_COLORS and "reader.darkTheme" in READER_COL
 assert '"#FAFAF7"' in READER_COLORS and "migrateLegacyCream" in READER_COLORS
 assert 'await applyPreset("customCupertinoPaper")' in READER_COLORS
 assert "customCupertinoCream" in READER_COLORS
-assert "CUPERTINO SOFT v0.4.1" in STYLE, "Review navigation and zebra fixes"
+assert "CUPERTINO SOFT v0.5.0" in STYLE, "Review navigation and zebra fixes"
 assert "#zotero-view-item-sidenav" in STYLE and "flex: 0 0 40px !important" in STYLE
 assert "#zotero-items-tree .row:not(.selected):nth-child(even)" in STYLE
+assert "--cupertino-row-selected-bg: #F5E5E5" in STYLE
+assert "CUPERTINO ZOTERO SOFT v0.5.0" in STYLE
+assert "#FAFAF7" in STYLE and "#F3F3F3" in STYLE and "#D78381" in STYLE
+assert "rgba(215,131,129,.30)" in STYLE
 assert not any("\u3400" <= ch <= "\u9fff" for ch in STYLE + JS), "Translate source comments into English"
 
 # Include the reader module in bootstrap.js itself. Gecko's loadSubScript may
@@ -58,7 +62,7 @@ FILES = [
     (ROOT / "NOTICE.md", "NOTICE.md"),
 ]
 OUT.mkdir(exist_ok=True)
-XPI = OUT / f"zotero-cupertino-soft-theme-{VERSION}.xpi"
+XPI = OUT / f"cupertino-zotero-soft-theme-{VERSION}.xpi"
 with zipfile.ZipFile(XPI, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
     archive.writestr("bootstrap.js", BOOTSTRAP_XPI)
     for source, name in FILES:
@@ -71,7 +75,7 @@ with zipfile.ZipFile(XPI) as archive:
     assert b"CupertinoReaderBackground = " in archive.read("bootstrap.js")
     assert json.loads(archive.read("manifest.json")) == MANIFEST
 
-DOWNLOAD = f"https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/download/v{VERSION}/{XPI.name}"
+DOWNLOAD = f"https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/download/v{VERSION}/{XPI.name}"
 UPDATES = {"addons": {ADDON["id"]: {"updates": [{
     "version": VERSION,
     "update_link": DOWNLOAD,

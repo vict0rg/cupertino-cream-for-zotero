@@ -19,7 +19,7 @@ Reused and modified: original CSS, startup hooks, icons and tree-row animations.
 ## Design references (no source copied)
 
 - [Cupertino for Obsidian](https://github.com/svnaxis/obsidian-cupertino) — **MIT**, Cupertino visual lineage
-- [Obsidian Cupertino Soft Theme](https://github.com/vict0rg/obsidian-cupertino-soft-theme) — MIT companion, recommended
+- [Cupertino Obsidian Soft Theme](https://github.com/vict0rg/cupertino-obsidian-soft-theme) — MIT companion, recommended
 - [Notation](https://github.com/deathau/Notation-for-Obsidian) — **The Unlicense**, understated reading layout
 - [Typewriter](https://github.com/crashmoney/obsidian-typewriter) — **GPL-3.0**, paper reading inspiration; **no GPL-licensed CSS or fonts reused**
 - [Shimmering Focus](https://github.com/chrisgrieser/shimmering-focus) — **MIT**, subtle content separation
