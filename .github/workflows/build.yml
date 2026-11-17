@@ -14,13 +14,13 @@ jobs:
       - name: Checkout fork
         uses: actions/checkout@v4
       - name: Verify JavaScript syntax
-        run: node --check Cupertino-Zotero/bootstrap.js && node --check Cupertino-Zotero/reader-background.js && node tests/reader-background.test.cjs
+        run: node --check Cupertino-Zotero/bootstrap.js && node --check Cupertino-Zotero/reader-background.js && node tests/reader-background.test.cjs && node tests/opaque-titlebar.test.cjs
       - name: Build XPI and update manifest
         run: python3 scripts/build.py
       - name: Upload validated build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cupertino-cream-for-zotero-0.3.0
+          name: cupertino-cream-for-zotero-0.3.1
           path: dist/*
       - name: Publish documented public release
         env:
@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          TAG="v0.3.0"
+          TAG="v0.3.1"
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "$TAG already exists; leaving the original release intact."
           else

@@ -1,0 +1,21 @@
+/* Regression: Zotero's top chrome must not be transparent on Linux. */
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const css = fs.readFileSync('Cupertino-Zotero/style.css', 'utf8');
+const key = '#tab-bar-container,\n#zotero-title-bar,\n#titlebar';
+const at = css.indexOf(key);
+assert.ok(at !== -1, 'Titlebar+tabs group is missing');
+const block = css.slice(at, css.indexOf('}', at)+1);
+assert.match(block, /background:\s*var\(--color-tabbar[^;]*!important/);
+assert.doesNotMatch(block,/background:\s*transparent/);
+const menu = css.match(/#toolbar-menubar\s*\{([^}]+)\}/);
+assert.ok(menu, 'Menu strip must have its own painted background');
+assert.match(menu[1],/background-color:\s*var\(--color-toolbar[^;]*!important/);
+const browser = css.match(/#browser\s*\{([^}]+)\}/);
+assert.ok(browser, 'Browser shell must have an opaque background');
+assert.match(browser[1],/background-color:\s*var\(--color-toolbar[^;]*!important/);
+const manifest = JSON.parse(fs.readFileSync('Cupertino-Zotero/manifest.json','utf8'));
+assert.equal(manifest.version,'0.3.1');
+assert.equal(manifest.applications.zotero.id,'cupertino-with-pdf-background@vict0rg.github.io');
+assert.match(css,/Native Zotero application menubar is permanently visible/);
+console.log('Opaque menu/titlebar/tabs and unchanged add-on ID: PASS');

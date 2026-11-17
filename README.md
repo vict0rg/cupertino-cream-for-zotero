@@ -4,7 +4,7 @@ A calm, warm, Cupertino-inspired interface for Zotero, with comfortable PDF back
 
 **Obsidian companion:** [Cupertino Cream](https://github.com/vict0rg/obsidian-cupertino-cream) — **recommended** for matching writing, note-taking and reading workspaces across Obsidian and Zotero.
 
-[**Download XPI**](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/download/v0.3.0/cupertino-cream-for-zotero-0.3.0.xpi) · [Releases](https://github.com/vict0rg/cupertino-cream-for-zotero/releases) · [Licensing](CREDITS.md) · [Changelog](CHANGELOG.md)
+[**Download XPI**](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/download/v0.3.1/cupertino-cream-for-zotero-0.3.1.xpi) · [Releases](https://github.com/vict0rg/cupertino-cream-for-zotero/releases) · [Licensing](CREDITS.md) · [Changelog](CHANGELOG.md)
 
 ## Highlights
 
@@ -28,14 +28,22 @@ A calm, warm, Cupertino-inspired interface for Zotero, with comfortable PDF back
 
 The light interface is deliberately cream rather than pure white. Red is used sparingly for selected rows and navigation focus.
 
+## Linux titlebar fix (v0.3.1)
+
+Some Linux desktop configurations (including KDE/GTK titlebars under X11 or Wayland) revealed the desktop wallpaper through the application menu strip and the tab strip. **v0.3.1 uses opaque cream/dark surfaces for the titlebar, tab container and native menu strip**, while preserving Zotero window controls and menus.
+
+This release does **not** change the PDF reader's background presets, icons or metadata sidebar geometry. If your window still has an unwanted transparent top after upgrading, fully restart Zotero and ensure no other theme extension is active. Report your Zotero version, desktop environment, display protocol (X11/Wayland), and a screenshot with private library details hidden.
+
+You can reinstall [v0.3.0](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/tag/v0.3.0) to revert the styling if needed.
+
 ## Install
 
-1. Download the XPI from [Release v0.3.0](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/tag/v0.3.0).
+1. Download the XPI from [Release v0.3.1](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/tag/v0.3.1).
 2. In Zotero, open **Tools → Plugins → gear icon → Install Plugin From File**.
 3. Disable other full-interface theme plugins during testing to avoid CSS conflicts.
 4. Restart Zotero or reopen PDF tabs if a change does not appear immediately.
 
-**Upgrade note:** if you have **Cupertino for Zotero with PDF Background v0.2.x** installed, v0.3.0 is its renamed successor. Its internal add-on ID is unchanged; do **not** install it as a separate competing theme.
+**Upgrade note:** if you have **Cupertino for Zotero with PDF Background v0.2.x** installed, v0.3.1 is its renamed successor. Its internal add-on ID is unchanged; do **not** install it as a separate competing theme.
 
 ## PDF reading backgrounds
 
@@ -69,7 +77,7 @@ node tests/reader-background.test.cjs
 python3 scripts/build.py
 ```
 
-The build creates `dist/cupertino-cream-for-zotero-0.3.0.xpi` and `dist/updates.json`. GitHub Actions publishes tested releases. The add-on identifier remains `cupertino-with-pdf-background@vict0rg.github.io` for upgrade continuity even though the public name and repository changed.
+The build creates `dist/cupertino-cream-for-zotero-0.3.1.xpi` and `dist/updates.json`. GitHub Actions publishes tested releases. The add-on identifier remains `cupertino-with-pdf-background@vict0rg.github.io` for upgrade continuity even though the public name and repository changed.
 
 ## Get listed
 

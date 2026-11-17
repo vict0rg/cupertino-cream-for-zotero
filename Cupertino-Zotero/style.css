@@ -191,12 +191,30 @@ menupopup {
 	border-bottom: none !important;
 }
 
-/* Integrated tab bar with no bottom stroke */
+/* Solid titlebar and tab surfaces for Linux / X11 / Wayland.
+ * The upstream transparent backgrounds could expose the desktop wallpaper on
+ * KDE/GTK compositors, making Zotero's File/Edit/View menus unreadable.
+ * Preserve native Gecko titlebar appearance, drag behavior and window buttons.
+ * Never use window-wide opacity or transparency to render these surfaces.
+ */
 #tab-bar-container,
 #zotero-title-bar,
 #titlebar {
-	background: transparent !important;
+	background: var(--color-tabbar, #EEE5DC) !important;
 	border-bottom: none !important;
+}
+
+#toolbar-menubar {
+	background-color: var(--color-toolbar, #EEE5DC) !important;
+	background-image: none !important;
+}
+
+#browser {
+	background-color: var(--color-toolbar, #EEE5DC) !important;
+}
+
+#titlebar {
+	color: var(--cupertino-row-selected-text, #332E2B) !important;
 }
 
 #tab-bar-container::before,

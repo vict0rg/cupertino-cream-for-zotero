@@ -1,23 +1,19 @@
-# Cupertino Cream for Zotero v0.3.0
+# Cupertino Cream for Zotero v0.3.1
 
-First release under the **Cupertino Cream for Zotero** name.
+**Linux titlebar opacity fix.**
 
-## Changes
+On some KDE and GTK-based Linux desktops, the titlebar and tabs appeared transparent, showing the desktop wallpaper behind Zotero's main menu and reducing readability. This release replaces the inherited transparent surfaces with a solid cream background in light mode and a dark-brown surface in dark mode.
 
-- New matched warm-paper and cream palette based on coordinated Notion-like reading surfaces
-- Same restrained Cupertino red accent for selected rows and navigation
-- Cross-recommended companion theme: [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream)
-- Restored main menu bar and corrected metadata navigation geometry preserved
-- Reader **PDF Background** selector retained: Original, Soft Cream, Soft Blue, Soft Sage and Soft Paper
-- Updated repository name, documentation, licensing credits and automatic update URLs
-- Retained the **same internal add-on identifier** as the earlier "Cupertino for Zotero with PDF Background" releases so existing installations can upgrade.
+The corrected regions are Zotero's native titlebar, menu strip and tab strip. Native window controls, menu interactions, and dragging behavior are retained.
 
-## Installation
+**No changes** to the reader's PDF background presets (Soft Cream, Soft Blue, Soft Sage, Soft Paper, Original), metadata pane geometry, item-tree motion, or add-on identity. The MIT source licensing and upstream credit documentation remain unchanged.
 
-Download `cupertino-cream-for-zotero-0.3.0.xpi` and select **Tools → Plugins → Install Plugin From File**.
+## Install
 
-## License
+Download `cupertino-cream-for-zotero-0.3.1.xpi` and install using **Tools → Plugins → Install Plugin From File**. Restart Zotero after updating and disable other complete UI themes to avoid conflicting CSS.
 
-Based on [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero) under **MIT**, retaining the original copyright and permission notice. [Notation](https://github.com/deathau/Notation-for-Obsidian) (The Unlicense) is a visual reference, not a code dependency. [Zotero PDF Background](https://github.com/wangqian06/zotero-pdf-background) and [azhar-rafiq's fork](https://github.com/azhar-rafiq/zotero-pdf-background) are credited as functional inspirations with no unlicensed source copied.
+If the fix does not work in your Linux environment, please report Zotero version, KDE/GNOME/other desktop environment, X11 or Wayland, and a screenshot. The prior [v0.3.0](https://github.com/vict0rg/cupertino-cream-for-zotero/releases/tag/v0.3.0) remains available for rollback.
 
-See [CREDITS.md](https://github.com/vict0rg/cupertino-cream-for-zotero/blob/main/CREDITS.md).
+**Credits:** original Cupertino for Zotero by shenghuang-123 et al. (MIT); Notation by deathau (The Unlicense) as design inspiration; PDF Background projects as feature references without reused source. Details: [CREDITS.md](https://github.com/vict0rg/cupertino-cream-for-zotero/blob/main/CREDITS.md).
+
+**Companion theme:** [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream).

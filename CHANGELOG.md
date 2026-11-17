@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 — Solid Linux titlebar and readable menus
+
+- Replaced inherited transparent menu/titlebar/tab backgrounds with opaque Cupertino Cream materials.
+- Prevented KDE/GTK compositors on some Linux systems from showing the desktop wallpaper through Zotero's top chrome.
+- Kept the native File/Edit/View/Tools/Help menu, draggable titlebar and window controls.
+- Included regression tests for the opaque top surfaces. PDF backgrounds, reader toolbar, collections and metadata navigation are unchanged.
+- Remains compatible with the existing add-on ID and previously installed releases.
+
 ## 0.3.0 — Cupertino Cream unified design
 
 - Public extension renamed to **Cupertino Cream for Zotero**, retaining the installed add-on ID.
