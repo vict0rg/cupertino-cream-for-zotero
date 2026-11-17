@@ -1,66 +1,15 @@
 # Changelog
 
-## 0.3.2 — Letter Paper palette and matching PDF default
+## 0.4.0 — Zotero Cupertino Soft Theme
 
-- New `#FFF9EC` reading paper matches the Obsidian Cupertino Cream v0.1.1 background.
-- Less brown sidebars, lighter toolbars, matching Zotero native Soft Cream PDF background.
-- First-use Soft Cream default only when no prior user reader themes/preferences exist (Zotero 8+).
-- Migrates only the unmodified older Soft Cream preset; preserves customized themes.
-- Keeps opaque Linux titlebar, visible menus and metadata layout unchanged.
+- Renamed the project and all active GitHub/XPI URLs to Zotero Cupertino Soft Theme.
+- Used Soft Paper (`#FAFAF7`) for the reading background, pale-gray sidebars and toolbars, gray separators, and subtle coral accents.
+- Made Soft Paper the first-use PDF preset **only when the Zotero reader has no existing user theme preferences**.
+- Retained the remaining presets, the permanent menubar, Linux opaque titlebar, and repaired metadata pane.
+- Preserved the stable add-on ID for updates from previous editions.
+- Updated English documentation, credits, license notices and companion references.
+- Prepared a request to update the existing Zotero Plugins Atlas listing rather than duplicate it.
 
-## 0.3.1 — Solid Linux titlebar and readable menus
+## Earlier versions
 
-- Replaced inherited transparent menu/titlebar/tab backgrounds with opaque Cupertino Cream materials.
-- Prevented KDE/GTK compositors on some Linux systems from showing the desktop wallpaper through Zotero's top chrome.
-- Kept the native File/Edit/View/Tools/Help menu, draggable titlebar and window controls.
-- Included regression tests for the opaque top surfaces. PDF backgrounds, reader toolbar, collections and metadata navigation are unchanged.
-- Remains compatible with the existing add-on ID and previously installed releases.
-
-## 0.3.0 — Cupertino Cream unified design
-
-- Public extension renamed to **Cupertino Cream for Zotero**, retaining the installed add-on ID.
-- Introduced cream reading panels, warm toolbar and sidebar materials, coordinated with the Obsidian companion.
-- Recommended the companion [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream) in English documentation.
-- Updated release asset name, GitHub repository links and automatic update URL after repository rename.
-- Retained all menu visibility, non-overlapping metadata navigation, reader background presets and motion fixes.
-- Added third-party directory submission guide and updated license attribution.
-
-## 0.2.2 — Public documentation and attribution (no functional changes)
-
-- Reorganized the public README in English with complete installation, palette and compatibility instructions.
-- Verified and documented Cupertino for Zotero's MIT licensing and the original Cupertino for Obsidian MIT design reference.
-- Credited both the original Zotero PDF Background project and azhar-rafiq's fork strictly as inspiration; their source is not incorporated.
-- Added NOTICE.md and specific release notes to clarify provenance and copyright.
-- Maintained the successful v0.2.1 menu, metadata sidebar and PDF preset behaviors without functional changes.
-
-## 0.2.1 — Reader toolbar and metadata navigation fixes (experimental)
-
-- Reader background selector: bundle the reader code directly into the Zotero bootstrap script instead of executing it through a separate subscript scope; register the toolbar hook after Zotero UI is ready.
-- Right-hand item metadata navigation: remove the original Cupertino 10px hover-to-expand behavior so the navigation rail keeps its native width and does not cover citation metadata.
-- Add a mocked reader toolbar test to the GitHub Actions build.
-- All v0.2.0 reading colors and earlier changes remain intact.
-
-## 0.2.0 — Soft PDF backgrounds (experimental)
-
-- Added a clearly labeled **PDF Background** control to the native reader toolbar.
-- Four preset reading colors: **Soft Cream**, **Soft Blue**, **Soft Sage**, and **Soft Paper**, plus **Original**.
-- Uses Zotero's native reader theme system and synced custom themes, rather than painting semi-transparent overlays on PDF text.
-- The selected scheme is applied to light and dark reader modes; the themes remain editable in Zotero's own **Appearance (Aa)** panel.
-- The plugin does not modify PDF files, stored annotations, or bibliographic records.
-- Existing custom reader themes are preserved. New themes are registered only when explicitly selected.
-- Removing the add-on removes its toolbar selector, but Zotero retains any native custom themes the user chose.
-- Current native reader theme support targets **Zotero 8–10**; the menu and Cupertino UI continue to target Zotero 7, where reader themes may be unavailable.
-- Reader UI changes need testing in an actual Zotero session; this is a prerelease.
-- The legacy PDF Background add-on was studied for its user-facing idea; no unlicensed source was copied.
-
-
-## 0.1.0 — First preview
-
-- Forked upstream Cupertino for Zotero v1.7.6 under a distinct add-on name and identifier.
-- Removed the rule that automatically collapses the native main application menubar to 14 px and opacity 0.
-- Restored persistent access to File, Edit, View, Tools, Help without changing native menu placement.
-- Translated CSS/JavaScript code comments to English; added English manifest and documentation.
-- Added reproducible XPI packaging, validation and a GitHub Actions pre-release workflow.
-- Retained upstream artwork, styling, animations and MIT attribution.
-
-**Not yet included:** PDF color preset controls, despite the long-term project name. Planned for v0.2.0.
+See the Git history and historical tagged releases for the Cupertino Cream and Cupertino with PDF Background development stages. Their license and source history remain part of this fork.

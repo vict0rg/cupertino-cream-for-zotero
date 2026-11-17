@@ -1,20 +1,11 @@
 # Copyright and third-party notices
 
-## Cupertino for Zotero
+**Cupertino for Zotero upstream:** Copyright (c) 2026 Cupertino for Zotero contributors, MIT. Modified Cupertino CSS, bootstrap code, icons and animations are distributed with original copyright and permission terms in [LICENSE](LICENSE), also included in installable XPIs.
 
-Copyright (c) 2026 Cupertino for Zotero contributors
+**Zotero Cupertino Soft Theme derivative:** Copyright (c) 2026 vict0rg and contributors for newly authored changes, to the extent applicable, under MIT terms.
 
-The Cupertino Cream for Zotero plugin derives styling, bootstrap code, icons and animations from [shenghuang-123/cupertino-for-zotero](https://github.com/shenghuang-123/cupertino-for-zotero), licensed under MIT. The original copyright and complete license text are preserved in [LICENSE](LICENSE) and in redistributed XPIs.
+Other named projects are references only: Cupertino for Obsidian (MIT); Notation (The Unlicense); Typewriter (GPL-3.0); Shimmering Focus (MIT); Olivier's Theme (MIT); Zotero PDF Background and its azhar-rafiq fork (no license verified). No source code or assets from any of these references were copied.
 
-## Derivative contributions
+Recommended separately installed companion: [Obsidian Cupertino Soft Theme](https://github.com/vict0rg/obsidian-cupertino-soft-theme).
 
-Copyright (c) 2026 vict0rg and contributors for new work, to the extent applicable. The derivative source and documentation are distributed on the same MIT terms as the upstream, with all upstream notices preserved.
-
-## Third-party visual and feature references (no copied code)
-
-- [Notation](https://github.com/deathau/Notation-for-Obsidian) — The Unlicense; warm Notion-inspired visual reference.
-- [Cupertino for Obsidian](https://github.com/svnaxis/obsidian-cupertino) — MIT; visual lineage for companion theme.
-- [Cupertino Cream for Obsidian](https://github.com/vict0rg/obsidian-cupertino-cream) — separately maintained matching theme.
-- [Zotero PDF Background](https://github.com/wangqian06/zotero-pdf-background) and [azhar-rafiq fork](https://github.com/azhar-rafiq/zotero-pdf-background) — functional references. No source code or assets copied due to unconfirmed reuse permissions.
-
-These notices do not imply affiliation or endorsement. See [CREDITS.md](CREDITS.md).
+See [CREDITS.md](CREDITS.md) for scope and links. This project is independent and not endorsed by the named developers.
