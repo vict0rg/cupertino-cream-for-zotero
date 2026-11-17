@@ -2,7 +2,7 @@
 
 ## Zotero Plugins Atlas
 
-The plugin is **already listed** as Cupertino Cream for Zotero. The owner should request an existing-listing update to the new repository and title, not submit a duplicate. See [ATLAS_UPDATE_REQUEST.md](ATLAS_UPDATE_REQUEST.md).
+The plugin is **already listed** as Cupertino Cream for Zotero. An [existing-listing update request](https://github.com/iliasbeshimov/zoteroplugins.org/issues/12) has been filed to migrate the name and repository, rather than submit a duplicate. See [ATLAS_UPDATE_REQUEST.md](ATLAS_UPDATE_REQUEST.md).
 
 ## Add-on Market for Zotero
 

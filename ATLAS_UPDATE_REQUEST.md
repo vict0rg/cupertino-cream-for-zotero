@@ -1,4 +1,6 @@
-# Existing Zotero Plugins Atlas listing — update request
+# Existing Zotero Plugins Atlas listing — update request filed
+
+**Request filed:** [iliasbeshimov/zoteroplugins.org issue #12](https://github.com/iliasbeshimov/zoteroplugins.org/issues/12). The Atlas maintainers have not yet confirmed the migration.
 
 **This is not a new plugin submission.** The current public page is:
 

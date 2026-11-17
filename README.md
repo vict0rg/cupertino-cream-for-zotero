@@ -75,7 +75,7 @@ The build produces `dist/zotero-cupertino-soft-theme-0.4.0.xpi` and `dist/update
 
 ## Plugin directories
 
-An earlier edition is **already listed with grade A** at [Zotero Plugins Atlas](https://zoteroplugins.org/p/cupertino-cream-for-zotero). Because this is the **same repository and same installed add-on ID**, we are requesting an *existing listing update*, not a duplicate submission. See [ATLAS_UPDATE_REQUEST.md](ATLAS_UPDATE_REQUEST.md).
+An earlier edition is **already listed with grade A** at [Zotero Plugins Atlas](https://zoteroplugins.org/p/cupertino-cream-for-zotero). Because this is the **same repository and same installed add-on ID**, we have **filed an [existing-listing update request](https://github.com/iliasbeshimov/zoteroplugins.org/issues/12)**, not a duplicate submission. See [ATLAS_UPDATE_REQUEST.md](ATLAS_UPDATE_REQUEST.md).
 
 The [Add-on Market for Zotero](https://github.com/syt2/zotero-addons) has a separate submission catalog; see [MARKETPLACE_SUBMISSION.md](MARKETPLACE_SUBMISSION.md).
 
