@@ -795,3 +795,92 @@ collapsible-section > .head:hover {
  }
 }
 /* Keep opaque menu/titlebar surfaces and visible File/Edit/View menus. */
+
+/* CUPERTINO SOFT v0.4.1 — persistent metadata navigation layout
+ * Under Zotero 7–10, the item-pane content and sidenav are sibling
+ * elements. Native sidenav needs its own real flex slot; painting it as a
+ * hover overlay, or allowing its sibling to consume 100% of the width,
+ * hides bibliographic fields behind the icon rail.
+ * Applies only to the normal right-side view: stacked layout stays native. */
+item-pane#zotero-item-pane:not(.stacked):not([collapsed]) {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  overflow: hidden !important;
+}
+item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-item-pane-content {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: calc(100% - 40px) !important;
+  overflow: hidden !important;
+}
+item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-sidenav {
+  display: flex !important;
+  flex: 0 0 40px !important;
+  box-sizing: border-box !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 6px 4px 0 !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+  background-color: var(--color-toolbar) !important;
+}
+/* Context-pane sidenav is also a flex sibling in Zotero's native layout. */
+#zotero-context-pane-sidenav:not(.stacked):not([hidden]) {
+  position: relative !important;
+  flex: 0 0 40px !important;
+  box-sizing: border-box !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  inset: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  background-color: var(--color-toolbar) !important;
+}
+/* Ensure item details can shrink and wrap instead of extending beneath the rail. */
+#zotero-item-details,
+.zotero-view-item-container,
+.zotero-view-item-main {
+  min-width: 0 !important;
+}
+/* Virtualized article/book list: keep it paper-white but add pale gray
+ * zebra rows for quick scanning. Avoid changing the PDF reading background.
+ * Zotero owns selected and semantic status styles. */
+@media (prefers-color-scheme: light) {
+  #zotero-items-pane-container,
+  #zotero-items-tree {
+    background-color: #F7F8F9 !important;
+  }
+  #zotero-items-tree .row:not(.selected):nth-child(odd) {
+    background-color: #F7F8F9 !important;
+  }
+  #zotero-items-tree .row:not(.selected):nth-child(even) {
+    background-color: #ECEFF1 !important;
+  }
+  #zotero-items-tree .row:not(.selected):hover {
+    background-color: #E3E8EC !important;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #zotero-items-pane-container,
+  #zotero-items-tree {
+    background-color: #282B2E !important;
+  }
+  #zotero-items-tree .row:not(.selected):nth-child(odd) {
+    background-color: #292C2F !important;
+  }
+  #zotero-items-tree .row:not(.selected):nth-child(even) {
+    background-color: #313539 !important;
+  }
+  #zotero-items-tree .row:not(.selected):hover {
+    background-color: #3D4246 !important;
+  }
+}

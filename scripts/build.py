@@ -18,7 +18,7 @@ assert ADDON["id"] == "cupertino-with-pdf-background@vict0rg.github.io"
 assert ADDON["strict_min_version"] == "7.0"
 assert ADDON["strict_max_version"] == "10.0.*"
 assert ADDON["update_url"].startswith("https://github.com/vict0rg/")
-assert VERSION == "0.4.0", "Review version and release notes before a new release"
+assert VERSION == "0.4.1", "Review version and release notes before a new release"
 STYLE = (SRC / "style.css").read_text(encoding="utf-8")
 assert "#menubar-items {\n\tmax-width: 14px" not in STYLE, "Native menu must remain visible"
 assert "Native Zotero application menubar is permanently visible" in STYLE
@@ -36,6 +36,9 @@ assert "reader.lightTheme" in READER_COLORS and "reader.darkTheme" in READER_COL
 assert '"#FAFAF7"' in READER_COLORS and "migrateLegacyCream" in READER_COLORS
 assert 'await applyPreset("customCupertinoPaper")' in READER_COLORS
 assert "customCupertinoCream" in READER_COLORS
+assert "CUPERTINO SOFT v0.4.1" in STYLE, "Review navigation and zebra fixes"
+assert "#zotero-view-item-sidenav" in STYLE and "flex: 0 0 40px !important" in STYLE
+assert "#zotero-items-tree .row:not(.selected):nth-child(even)" in STYLE
 assert not any("\u3400" <= ch <= "\u9fff" for ch in STYLE + JS), "Translate source comments into English"
 
 # Include the reader module in bootstrap.js itself. Gecko's loadSubScript may

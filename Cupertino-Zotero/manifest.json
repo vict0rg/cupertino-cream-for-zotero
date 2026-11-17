@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Zotero Cupertino Soft Theme",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Soft Paper PDF reading and a neutral-gray Cupertino interface for Zotero, with permanent menus and accessible metadata controls.",
   "author": "Cupertino for Zotero contributors; vict0rg derivative",
   "icons": {

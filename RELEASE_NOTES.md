@@ -1,18 +1,12 @@
-# Zotero Cupertino Soft Theme v0.4.0
+# Zotero Cupertino Soft Theme v0.4.1 — Metadata rail and list contrast
 
-A neutral-gray Cupertino redesign focused on calm PDF reading and consistent styling with [Obsidian Cupertino Soft Theme](https://github.com/vict0rg/obsidian-cupertino-soft-theme).
+This update fixes two visual issues reported in the v0.4.0 layout.
 
-- Soft Paper (`#FAFAF7`) is the preferred PDF reading preset for a fresh reader configuration.
-- Gray navigation panes (`#F1F2F3`) and titlebar/tab strip (`#E8EAEC`) with gray dividers (`#DDE0E3`).
-- Muted coral selected-item accents; Linux titlebar remains opaque.
-- Retains permanent File/Edit/View/Tools/Help menu and the metadata pane no-overlap fix.
-- Keeps Soft Paper, Soft Cream, Soft Blue, Soft Sage and Original reader choices.
-- Preserves existing user preferences and stored custom reader themes.
-- Updates GitHub repository URL and XPI filename to the renamed project.
-- Maintains the existing add-on ID for upgrades from Cream releases.
+- **Right-hand metadata navigation:** its icon rail now reserves a 40px flex column; the adjacent bibliographic area shrinks within its own column rather than letting icons overlap metadata. The Zotero stacked view remains native.
+- **Article/ebook list:** subtle alternating light-gray rows, with a slightly clearer hover shade and unchanged muted selection.
+- The Soft Paper PDF reading preset (`#FAFAF7`), menu/titlebar opacity, reader buttons, extension identity and saved preferences are unchanged.
+- Structural layout/regression tests run in GitHub Actions. As always, actual Linux desktop verification is still required.
 
-**Install:** Download `zotero-cupertino-soft-theme-0.4.0.xpi`, then Tools → Plugins → Install Plugin From File. Restart Zotero and reopen PDFs if necessary.
+**Install:** [Download v0.4.1 XPI](https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/download/v0.4.1/zotero-cupertino-soft-theme-0.4.1.xpi), choose **Tools → Plugins → Install Plugin From File**, then restart Zotero.
 
-**Licensing:** MIT upstream Cupertino for Zotero source reused with original copyright; Notation, Typewriter, Shimmering Focus, Olivier's Theme, Obsidian Cupertino and Zotero PDF Background are credited as design/feature references only, with no source copied. See [CREDITS.md](https://github.com/vict0rg/zotero-cupertino-soft-theme/blob/main/CREDITS.md).
-
-Not affiliated with Zotero.
+The code remains a derivative of Cupertino for Zotero (MIT) with preserved copyright and permission notices. Notation, Typewriter, Shimmering Focus, Olivier's Theme, Zotero PDF Background and the Obsidian companion are attributed as inspiration or independent related software; no source from those references was reused. See [CREDITS.md](https://github.com/vict0rg/zotero-cupertino-soft-theme/blob/main/CREDITS.md).

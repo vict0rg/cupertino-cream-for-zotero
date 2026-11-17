@@ -11,10 +11,17 @@
 - **Soft Paper by default on a fresh reader configuration:** `#FAFAF7`, close to white but less stark.
 - **Cupertino gray interface:** `#F1F2F3` navigation sidebars, `#E8EAEC` tabs and menu strip, `#DDE0E3` dividers.
 - **Always-visible Zotero menu:** File, Edit, View, Tools and Help stay usable.
-- **Metadata panel:** navigation icons no longer expand over bibliographic fields.
+- **Metadata panel (v0.4.1):** the side-navigation rail reserves its own 40px flex column; metadata wraps in the remaining space instead of passing under its icons.
+- **Article list:** alternating soft gray (`#F7F8F9` / `#ECEFF1`) rows, muted selection and a slightly stronger hover shade.
 - **Native PDF Background selector:** Soft Paper, Soft Cream, Soft Blue, Soft Sage or Original — no changes to PDF file data, annotations or text layers.
 - **Accessible palette:** dark-on-light text, small muted coral selection indicators, dark mode and reduced-motion support.
 - **Linux window compatibility:** opaque titlebar and menus avoid showing the desktop wallpaper through the window.
+
+## v0.4.1 layout correction
+
+This maintenance release responds to a regression reported with the right-side icon navigation overlapping bibliographic metadata. The standard (non-stacked) details pane now reserves a fixed 40px flex slot for that navigation. Stacked mode is left to Zotero's native layout. The article/ebook list uses pale-gray alternating row backgrounds; **PDF Soft Paper (#FAFAF7)** and reader presets are unchanged.
+
+The fix is covered by structural regression tests but should be confirmed in Zotero's actual desktop UI, because the tests do not simulate Gecko's layout engine. Restart Zotero after installing. If something still overlaps, note the Zotero version, X11/Wayland and panel width in the report.
 
 ## Shared palette
 
@@ -30,7 +37,7 @@
 
 ## Install or upgrade
 
-1. Download **[zotero-cupertino-soft-theme-0.4.0.xpi](https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/download/v0.4.0/zotero-cupertino-soft-theme-0.4.0.xpi)**.
+1. Download **[zotero-cupertino-soft-theme-0.4.1.xpi](https://github.com/vict0rg/zotero-cupertino-soft-theme/releases/download/v0.4.1/zotero-cupertino-soft-theme-0.4.1.xpi)**.
 2. Open Zotero → **Tools → Plugins → gear icon → Install Plugin From File**.
 3. Select the XPI, restart Zotero if needed, and reopen PDF tabs.
 4. Disable competing *full interface* theme plugins if you see unwanted visual overlap.
@@ -71,7 +78,7 @@ node tests/opaque-titlebar.test.cjs
 python3 scripts/build.py
 ```
 
-The build produces `dist/zotero-cupertino-soft-theme-0.4.0.xpi` and `dist/updates.json`. Automatic update links point to this renamed repository.
+The build produces `dist/zotero-cupertino-soft-theme-0.4.1.xpi` and `dist/updates.json`. Automatic update links point to this renamed repository.
 
 ## Plugin directories
 

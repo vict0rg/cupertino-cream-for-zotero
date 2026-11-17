@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.1 — Metadata rail and gray zebra-striped list
+
+- Explicitly reserve a 40px flex sibling for the right-hand sidenav instead of letting it cover the metadata.
+- Keep the Zotero Stacked layout and hidden/collapsed states untouched.
+- Alternate pale gray rows in the central item list, maintaining separate selected and hover styling.
+- Retain PDF Soft Paper and the permanent Linux menubar/titlebar fixes.
+- Add layout regression assertions alongside the existing reader and titlebar tests.
+
+
 ## 0.4.0 — Zotero Cupertino Soft Theme
 
 - Renamed the project and all active GitHub/XPI URLs to Zotero Cupertino Soft Theme.
