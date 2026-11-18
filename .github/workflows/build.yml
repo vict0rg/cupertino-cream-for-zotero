@@ -20,7 +20,7 @@ jobs:
       - name: Upload validated build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cupertino-zotero-soft-theme-0.5.0
+          name: cupertino-zotero-soft-theme-0.6.0
           path: dist/*
       - name: Publish documented public release
         env:
@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          TAG="v0.5.0"
+          TAG="v0.6.0"
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release edit "$TAG" --title "Cupertino Zotero Soft Theme $TAG" --notes-file RELEASE_NOTES.md
           else

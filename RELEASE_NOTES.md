@@ -1,15 +1,19 @@
-# Cupertino Zotero Soft Theme v0.5.0 — Default-Obsidian aesthetics with gentle Cupertino coral
+# Cupertino Zotero Soft Theme v0.6.0 — original gray/red and named reading colors
 
-This release establishes the final shared visual language with [Cupertino Obsidian Soft Theme](https://github.com/vict0rg/cupertino-obsidian-soft-theme).
+A coordinated update with Cupertino Obsidian Soft Theme v0.4.0.
 
-- **Soft Paper #FAFAF7** remains the default PDF background for fresh reader settings; existing PDF preferences are preserved.
-- The Zotero interface now closely matches the **default Obsidian** light gray shell: pane #F3F3F3, tabs #EEEEEE, borders #DDDEDE.
-- Article and e-book rows alternate Soft Paper with a nearly white gray #F3F4F2.
-- Selected rows and collections have **pale coral #F5E5E5** with a thin #D78381 left accent; inactive-window selections remain visible but slightly muted.
-- Preserves the 0.4.1 right metadata navigation rail spacing, always-visible native File/Edit/View/Tools/Help menu, opaque Linux titlebar, and PDF background picker.
-- **Same installed Zotero add-on ID** as the prior Cream/Soft editions, so upgrades do not create a second extension.
-- Updates all repository and update-feed URLs after GitHub renaming.
+- Original Cupertino gray #EBEBED for panels and tabs, near-white #FAFAFA documents, #F2F2F4 metadata shade, and #333338 reading text.
+- Original Cupertino red #FF3B30 for accents; selected rows use the pale #FFE9E8 fill, including a quieter inactive-window state.
+- Fixed the disappearing Zotero toolbar above the document list: buttons and column headings remain accessible without hovering; collection and tab controls stay visible.
+- Reading Colors supports PDFs and EPUBs through Zotero's native reader theming.
+- Soft Gray is the new default: Background #FAFAFA and Foreground #333338.
+- + Custom Colors… opens a named-color dialog. Enter both hex colors or use color pickers; presets and saved user themes remain available.
+- Existing v0.5.0 users move to Soft Gray only if their previous Soft Paper default was untouched. Other saved themes and preferences are preserved.
+- Keeps native File/Edit/View/Tools/Help menus, opaque Linux titlebar, right-side 40px metadata icon rail, and stable add-on ID cupertino-with-pdf-background@vict0rg.github.io.
 
-Install [cupertino-zotero-soft-theme-0.5.0.xpi](https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/download/v0.5.0/cupertino-zotero-soft-theme-0.5.0.xpi) via Zotero → Tools → Plugins → Install Plugin From File.
+Install cupertino-zotero-soft-theme-0.6.0.xpi from:
+https://github.com/vict0rg/cupertino-zotero-soft-theme/releases/download/v0.6.0/cupertino-zotero-soft-theme-0.6.0.xpi
 
-Structural tests run in GitHub Actions, but runtime visual behavior still requires verification on Linux. This MIT derivative retains original copyright notices from [Cupertino for Zotero](https://github.com/shenghuang-123/cupertino-for-zotero). Notation, Typewriter, Shimmering Focus, Olivier's Theme, and Zotero PDF Background are credited as independent visual/functional references with no unlicensed code reused; see CREDITS.md and LICENSE.
+Zotero → Tools → Plugins → gear icon → Install Plugin From File. Restart if requested.
+
+Automated structural and native-reader simulation tests run in GitHub Actions. Runtime visual verification on a real Zotero desktop remains advisable. MIT derivative of shenghuang-123/cupertino-for-zotero, preserving original credits and license.

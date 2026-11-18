@@ -200,21 +200,21 @@ menupopup {
 #tab-bar-container,
 #zotero-title-bar,
 #titlebar {
-	background: var(--color-tabbar, #EEE5DC) !important;
+	background: var(--color-tabbar, #EBEBED) !important;
 	border-bottom: none !important;
 }
 
 #toolbar-menubar {
-	background-color: var(--color-toolbar, #EEE5DC) !important;
+	background-color: var(--color-toolbar, #EBEBED) !important;
 	background-image: none !important;
 }
 
 #browser {
-	background-color: var(--color-toolbar, #EEE5DC) !important;
+	background-color: var(--color-toolbar, #EBEBED) !important;
 }
 
 #titlebar {
-	color: var(--cupertino-row-selected-text, #332E2B) !important;
+	color: var(--cupertino-row-selected-text, #333338) !important;
 }
 
 #tab-bar-container::before,
@@ -268,105 +268,28 @@ menupopup {
 	border: none !important;
 }
 
-/* Upstream auto-hide layout: utility controls only, never the application menubar.
- * Retain keyboard focus and open-menu fallbacks in these controls. */
-
 /* Native Zotero application menubar is permanently visible.
- * Do not collapse #menubar-items or alter its width/opacity/visibility.
- * Zotero owns the File, Edit, View, Tools and Help menus.
+ * Native menus and toolbars remain visible and usable at all times.
+ * In v0.5.0, hover-to-reveal max-height:10px and opacity:0 made the bar above
+ * the document list disappear. Keep native heights, focus, and button layout.
  */
-
-/* Auto-reveal auxiliary tab controls */
-
-#zotero-tabs-toolbar {
-	max-width: 14px !important;
-	min-width: 14px !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: none !important;
-	overflow: hidden !important;
-	opacity: 0;
-	transition: max-width 280ms var(--cupertino-ease), opacity 200ms ease !important;
-}
-
-#zotero-tabs-toolbar:hover,
-#zotero-tabs-toolbar:focus-within,
-#zotero-tabs-toolbar:has([open]),
-#zotero-tabs-toolbar:has(.syncing) {
-	max-width: 200px !important;
-	padding: 0 4px !important;
-	opacity: 1;
-	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
-}
-
-/* Auto-reveal collection toolbar */
-
-#zotero-toolbar-collection-tree {
-	max-height: 10px !important;
-	min-height: 0 !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: none !important;
-	overflow: hidden !important;
-	opacity: 0;
-	transition: max-height 280ms var(--cupertino-ease), opacity 200ms ease !important;
-}
-
-#zotero-toolbar-collection-tree:hover,
-#zotero-toolbar-collection-tree:focus-within,
-#zotero-toolbar-collection-tree:has([open]),
-#zotero-toolbar-collection-tree:has(#zotero-collections-search:not(.hidden)) {
-	max-height: 56px !important;
-	padding: 4px 6px !important;
-	opacity: 1;
-	transition: max-height 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
-}
-
-/* Auto-reveal item toolbar */
-
+#zotero-tabs-toolbar,
+#zotero-toolbar-collection-tree,
 #zotero-toolbar-item-tree {
-	max-height: 10px !important;
-	min-height: 0 !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: none !important;
-	overflow: hidden !important;
-	opacity: 0;
-	transition: max-height 280ms var(--cupertino-ease), opacity 200ms ease !important;
-}
-
-#zotero-toolbar-item-tree:hover,
-#zotero-toolbar-item-tree:focus-within,
-#zotero-toolbar-item-tree:has([open]) {
-	max-height: 56px !important;
-	padding: 4px 6px !important;
-	opacity: 1;
-	transition: max-height 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible !important;
 }
 
 /* Native detail navigation: keep its full width in the layout at all times.
  * The upstream 10px hover-expand rule overlaid the bibliography metadata.
  * Preserve Zotero's native item-pane-sidenav sizing and stacked layouts. */
 
-/* Auto-reveal tag selector controls */
+/* Tag selector actions stay discoverable without hover. */
 
 .tag-selector-actions {
-	max-width: 12px !important;
-	min-width: 12px !important;
-	padding: 0 !important;
-	margin: 0 !important;
-	border: none !important;
-	overflow: hidden !important;
-	opacity: 0;
-	transition: max-width 280ms var(--cupertino-ease), opacity 200ms ease !important;
-}
-
-.tag-selector-actions:hover,
-.tag-selector-actions:focus-visible,
-.tag-selector-actions[selected] {
-	max-width: 120px !important;
-	opacity: 1;
-	transition: max-width 200ms var(--cupertino-ease-out), opacity 140ms ease !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Simplify item-tree and detail icons, preserving functional twisties */
@@ -458,10 +381,8 @@ item-pane-sidenav .btn {
 /* Table heading separators */
 .virtualized-table-header,
 .virtualized-table-header .cell {
-	background: transparent !important;
-	border: none !important;
-	border-bottom: none !important;
-	box-shadow: none !important;
+	background: var(--color-background) !important;
+	border-bottom: 1px solid var(--color-border50) !important;
 }
 
 /* Detail sidebar dividers */
@@ -748,42 +669,40 @@ collapsible-section > .head:hover {
 	}
 }
 
-/* CUPERTINO ZOTERO SOFT THEME v0.5.0 — Obsidian-default layout aesthetic
+/* CUPERTINO ZOTERO SOFT THEME v0.6.0 — original Cupertino gray and red
  * MIT historical source: shenghuang-123/cupertino-for-zotero
  * Companion: vict0rg/cupertino-obsidian-soft-theme
- * Soft Paper for content; native-like gray chrome; muted Cupertino coral.
- * Original Cupertino red #FF3B30 / coral #FF6B61 inspire the accents,
- * deliberately muted to improve long-form reading contrast. */
+ * Nearly-white content; Cupertino #EBEBED chrome; red #FF3B30 accents. */
 @media (prefers-color-scheme:light) {
  :root {
-  --color-toolbar: #EEEEEE !important;
-  --color-tabbar: #EEEEEE !important;
-  --color-sidepane: #F3F3F3 !important;
-  --color-background: #FAFAF7 !important;
-  --color-button: #FAFAF7 !important;
-  --color-control: #FAFAF7 !important;
-  --color-menu: #F3F3F3 !important;
-  --color-menu-opaque: #F3F3F3 !important;
-  --color-border: #DDDEDE !important;
-  --color-border50: #E5E6E6 !important;
-  --color-stripe: rgba(55,60,66,.025) !important;
-  --color-stripe-on-background: #F6F6F5 !important;
-  --color-quinary-on-background: #F4F4F3 !important;
-  --color-quarternary-on-background: #EBEDEC !important;
-  --color-quinary-on-sidepane: #EEEEED !important;
-  --color-quarternary-on-sidepane: #E6E8E7 !important;
-  --color-scrollbar: rgba(79,87,93,.22) !important;
-  --color-scrollbar-hover: rgba(79,87,93,.37) !important;
-  --cupertino-row-selected-bg: #F5E5E5 !important;
-  --cupertino-row-selected-text: #31353A !important;
-  --cupertino-row-selected-title: #A95157 !important;
-  --accent-red: #D78381 !important;
-  --accent-blue: #D78381 !important;
-  --accent-azure: #D78381 !important;
-  --accent-blue10: rgba(215,131,129,.10) !important;
-  --accent-blue30: rgba(215,131,129,.30) !important;
-  --accent-blue50: rgba(215,131,129,.50) !important;
-  --color-accent: #D78381 !important;
+  --color-toolbar: #EBEBED !important;
+  --color-tabbar: #EBEBED !important;
+  --color-sidepane: #EBEBED !important;
+  --color-background: #FAFAFA !important;
+  --color-button: #FAFAFA !important;
+  --color-control: #FAFAFA !important;
+  --color-menu: #F2F2F4 !important;
+  --color-menu-opaque: #F2F2F4 !important;
+  --color-border: #D9D9DE !important;
+  --color-border50: #E5E5E9 !important;
+  --color-stripe: rgba(51,51,56,.025) !important;
+  --color-stripe-on-background: #F5F5F6 !important;
+  --color-quinary-on-background: #F5F5F6 !important;
+  --color-quarternary-on-background: #EBEBED !important;
+  --color-quinary-on-sidepane: #F2F2F4 !important;
+  --color-quarternary-on-sidepane: #E3E3E7 !important;
+  --color-scrollbar: rgba(51,51,56,.22) !important;
+  --color-scrollbar-hover: rgba(51,51,56,.37) !important;
+  --cupertino-row-selected-bg: #FFE9E8 !important;
+  --cupertino-row-selected-text: #333338 !important;
+  --cupertino-row-selected-title: #D9362E !important;
+  --accent-red: #FF3B30 !important;
+  --accent-blue: #FF3B30 !important;
+  --accent-azure: #FF3B30 !important;
+  --accent-blue10: rgba(255,59,48,.10) !important;
+  --accent-blue30: rgba(255,59,48,.30) !important;
+  --accent-blue50: rgba(255,59,48,.50) !important;
+  --color-accent: #FF3B30 !important;
   --color-accent-text: #FFFFFF !important;
  }
 }
@@ -815,7 +734,7 @@ collapsible-section > .head:hover {
 }
 /* Keep opaque menu/titlebar surfaces and visible File/Edit/View menus. */
 
-/* CUPERTINO SOFT v0.5.0 — persistent metadata navigation layout
+/* CUPERTINO SOFT v0.6.0 — persistent metadata navigation layout
  * Under Zotero 7–10, the item-pane content and sidenav are sibling
  * elements. Native sidenav needs its own real flex slot; painting it as a
  * hover overlay, or allowing its sibling to consume 100% of the width,
@@ -876,13 +795,13 @@ item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-si
 @media (prefers-color-scheme: light) {
   #zotero-items-pane-container,
   #zotero-items-tree {
-    background-color: #FAFAF7 !important;
+    background-color: #FAFAFA !important;
   }
   #zotero-items-tree .row:not(.selected):nth-child(odd) {
-    background-color: #FAFAF7 !important;
+    background-color: #FAFAFA !important;
   }
   #zotero-items-tree .row:not(.selected):nth-child(even) {
-    background-color: #F3F4F2 !important;
+    background-color: #F5F5F6 !important;
   }
   #zotero-items-tree .row:not(.selected):hover {
     background-color: #ECEDEE !important;
@@ -904,36 +823,36 @@ item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-si
   }
 }
 
-/* CUPERTINO ZOTERO SOFT v0.5.0 — quiet navigation emphasis.
+/* CUPERTINO ZOTERO SOFT v0.6.0 — quiet navigation emphasis.
  * Keep the actual document list and PDF Paper surfaces coordinated with the
  * default Obsidian appearance while retaining Zotero's native controls. */
 @media (prefers-color-scheme: light) {
   /* Pale coral selection + a discreet visual marker, never solid red fill. */
   .virtualized-table .row.selected,
   #zotero-collections-tree .row.selected {
-    background-color: #F5E5E5 !important;
-    color: #31353A !important;
-    box-shadow: inset 3px 0 0 #D78381 !important;
+    background-color: #FFE9E8 !important;
+    color: #333338 !important;
+    box-shadow: inset 3px 0 0 #FF3B30 !important;
   }
   .virtualized-table .row.selected .cell.primary,
   #zotero-collections-tree .row.selected .cell.primary {
-    color: #A95157 !important;
+    color: #D9362E !important;
   }
   :root:-moz-window-inactive .virtualized-table .row.selected,
   :root:-moz-window-inactive #zotero-collections-tree .row.selected {
-    background-color: #F6ECEC !important;
-    box-shadow: inset 3px 0 0 #DBA2A0 !important;
+    background-color: #F8EEEE !important;
+    box-shadow: inset 3px 0 0 #E59792 !important;
   }
   /* The selector changes selection/background color, not the PDF canvas. */
   #zotero-items-pane-container,
   #zotero-items-tree {
-    background-color: #FAFAF7 !important;
+    background-color: #FAFAFA !important;
   }
   #zotero-items-tree .row:not(.selected):nth-child(odd) {
-    background-color: #FAFAF7 !important;
+    background-color: #FAFAFA !important;
   }
   #zotero-items-tree .row:not(.selected):nth-child(even) {
-    background-color: #F3F4F2 !important;
+    background-color: #F5F5F6 !important;
   }
   #zotero-items-tree .row:not(.selected):hover {
     background-color: #ECEDEE !important;
@@ -941,17 +860,19 @@ item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-si
   /* Gray information panel as in Obsidian's own sidebar. The icon rail
      remains an independently reserved flex sibling from the v0.4.1 fix. */
   #zotero-item-pane,
-  #zotero-context-pane,
+  #zotero-context-pane {
+    background-color: #F2F2F4 !important;
+  }
   #zotero-collections-pane {
-    background-color: #F3F3F3 !important;
+    background-color: #EBEBED !important;
   }
   item-pane#zotero-item-pane:not(.stacked):not([collapsed]) > #zotero-view-item-sidenav,
   #zotero-context-pane-sidenav:not(.stacked):not([hidden]) {
-    background-color: #EEEEEE !important;
-    border-inline-start: 1px solid #DDDEDE !important;
+    background-color: #EBEBED !important;
+    border-inline-start: 1px solid #D9D9DE !important;
   }
   item-pane-sidenav .btn:hover {
-    background-color: #F5E5E5 !important;
+    background-color: #FFE9E8 !important;
   }
   /* Respect the user's semantic classification colors and Zotero icons. */
 }

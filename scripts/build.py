@@ -18,31 +18,33 @@ assert ADDON["id"] == "cupertino-with-pdf-background@vict0rg.github.io"
 assert ADDON["strict_min_version"] == "7.0"
 assert ADDON["strict_max_version"] == "10.0.*"
 assert ADDON["update_url"].startswith("https://github.com/vict0rg/")
-assert VERSION == "0.5.0", "Review version and release notes before a new release"
+assert VERSION == "0.6.0", "Review version and release notes before a new release"
 STYLE = (SRC / "style.css").read_text(encoding="utf-8")
 assert "#menubar-items {\n\tmax-width: 14px" not in STYLE, "Native menu must remain visible"
 assert "Native Zotero application menubar is permanently visible" in STYLE
 # Regression check: the main titlebar must paint an opaque surface in GTK/KDE.
 assert "The upstream transparent backgrounds could expose the desktop wallpaper" in STYLE
-assert 'background: var(--color-tabbar, #EEE5DC) !important;' in STYLE
-assert '#toolbar-menubar {' in STYLE and 'background-color: var(--color-toolbar, #EEE5DC) !important;' in STYLE
+assert 'background: var(--color-tabbar, #EBEBED) !important;' in STYLE
+assert '#toolbar-menubar {' in STYLE and 'background-color: var(--color-toolbar, #EBEBED) !important;' in STYLE
 JS = (SRC / "bootstrap.js").read_text(encoding="utf-8")
 assert "loadAndRegisterSheet" in JS and "unregisterSheet" in JS
 assert "reader-background.js" in JS
 READER_COLORS = (SRC / "reader-background.js").read_text(encoding="utf-8")
 assert "Zotero.SyncedSettings" in READER_COLORS
-assert all(label in READER_COLORS for label in ["Soft Cream","Soft Blue","Soft Sage","Soft Paper"])
+assert all(label in READER_COLORS for label in ["Soft Gray","Soft Cream","Soft Blue","Soft Sage","Soft Paper"])
 assert "reader.lightTheme" in READER_COLORS and "reader.darkTheme" in READER_COLORS
 assert '"#FAFAF7"' in READER_COLORS and "migrateLegacyCream" in READER_COLORS
-assert 'await applyPreset("customCupertinoPaper")' in READER_COLORS
+assert 'await applyPreset("customCupertinoGray")' in READER_COLORS
+assert 'saveCustomTheme' in READER_COLORS and 'normalizeHex' in READER_COLORS
 assert "customCupertinoCream" in READER_COLORS
-assert "CUPERTINO SOFT v0.5.0" in STYLE, "Review navigation and zebra fixes"
+assert "CUPERTINO SOFT v0.6.0" in STYLE, "Review navigation and zebra fixes"
 assert "#zotero-view-item-sidenav" in STYLE and "flex: 0 0 40px !important" in STYLE
 assert "#zotero-items-tree .row:not(.selected):nth-child(even)" in STYLE
-assert "--cupertino-row-selected-bg: #F5E5E5" in STYLE
-assert "CUPERTINO ZOTERO SOFT v0.5.0" in STYLE
-assert "#FAFAF7" in STYLE and "#F3F3F3" in STYLE and "#D78381" in STYLE
-assert "rgba(215,131,129,.30)" in STYLE
+assert "--cupertino-row-selected-bg: #FFE9E8" in STYLE
+assert "CUPERTINO ZOTERO SOFT v0.6.0" in STYLE
+assert all(color in STYLE for color in ["#FAFAFA", "#EBEBED", "#F2F2F4", "#333338", "#FF3B30", "#FFE9E8"])
+assert "rgba(255,59,48,.30)" in STYLE
+assert "max-height: 10px !important" not in STYLE, "Document toolbar must not be hidden"
 assert not any("\u3400" <= ch <= "\u9fff" for ch in STYLE + JS), "Translate source comments into English"
 
 # Include the reader module in bootstrap.js itself. Gecko's loadSubScript may

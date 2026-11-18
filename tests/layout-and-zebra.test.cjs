@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const assert = require('node:assert/strict');
 const css = fs.readFileSync('Cupertino-Zotero/style.css','utf8');
 const manifest = JSON.parse(fs.readFileSync('Cupertino-Zotero/manifest.json','utf8'));
-assert.equal(manifest.version, '0.5.0');
+assert.equal(manifest.version, '0.6.0');
 assert.equal(manifest.applications.zotero.id, 'cupertino-with-pdf-background@vict0rg.github.io');
 // Navigation must be a real flex sibling, not an overlay.
 assert.match(css, /item-pane#zotero-item-pane:not\(\.stacked\):not\(\[collapsed\]\)/);
@@ -12,6 +12,10 @@ assert.match(css, /#zotero-context-pane-sidenav:not\(\.stacked\):not\(\[hidden\]
 assert.match(css, /#zotero-items-tree \.row:not\(\.selected\):nth-child\(even\)/);
 assert.match(css, /#zotero-items-tree \.row:not\(\.selected\):hover/);
 assert.match(css, /#zotero-items-tree \.row:not\(\.selected\):nth-child\(odd\)/);
+assert.match(css, /#zotero-toolbar-item-tree\s*\{[^}]*opacity:\s*1 !important/s);
+assert.doesNotMatch(css, /#zotero-toolbar-item-tree\s*\{[^}]*max-height:\s*10px/s);
+assert.doesNotMatch(css, /#zotero-toolbar-collection-tree\s*\{[^}]*max-height:\s*10px/s);
+assert.doesNotMatch(css, /#zotero-tabs-toolbar\s*\{[^}]*max-width:\s*14px/s);
 assert.match(css, /\.virtualized-table \.row\.selected/);
 assert.ok(!css.includes('#menubar-items {\n\tmax-width: 14px'));
 console.log('Zotero layout flex reservation, zebra rows and ID stability: PASS');
